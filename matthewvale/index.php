@@ -8,5 +8,7 @@
         <div class="box-promo">
             <img src="res\images\promos\anwk_promo.jpg" alt="A New World: Kingdoms">
         </div>
+
+        <h2>GAMES</h2>
     </body>
 </html>
