@@ -9,6 +9,6 @@
             <img src="res\images\promos\anwk_promo.jpg" alt="A New World: Kingdoms">
         </div>
 
-        <h2>GAMES</h2>
+        <h1>GAMES</h1>
     </body>
 </html>
