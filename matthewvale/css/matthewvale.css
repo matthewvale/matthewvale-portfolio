@@ -1,0 +1,121 @@
+/*#region ----- Global Body Properties */
+*{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    color: white;
+}
+a {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+h1 {
+    font-size: 30px;
+    color: white;
+}
+h2,h3,h4,h5,h6 {
+    font-family: 'Wire One', sans-serif;
+    font-size: 26px;
+    color: white;
+    text-shadow: 0 0 4px black;
+}
+p {
+    font-size: 12px;
+}
+i {
+    font-style: italic;
+}
+html, body {    
+	background-color:#282832;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+/*#endregion*/
+
+/*#region ----- Global Button Properties */
+.button-style-1 {
+    display: inline-block;
+    background-color: #FF6666;
+    border: 2px solid #FF6666;
+    border-radius: 30px;
+    line-height: 50px;
+    transition: ease-in-out 0.25s;
+}
+.button-style-1:hover {
+    background-color: transparent;
+    border: 2px solid #FF6666;
+}
+.button-style-2 {
+    display: inline-block;
+    border: 2px solid #FFD966;
+    border-radius: 30px;
+    line-height: 50px;
+    transition: ease-in-out 0.25s;
+}
+.button-style-2:hover {
+    background-color: #FFD966;
+    color: #282832;
+}
+/*#endregion*/
+
+/*#region ----- Navigation Bar Properties */
+header {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 1080px;
+    height: 100px;
+    z-index: 80;
+    background: #282832;
+    /* backdrop-filter: blur(2px); */
+}
+nav {
+    justify-content: center;
+    margin: 0 auto;
+}
+nav a {
+    flex: auto;
+    /* position: relative; */
+    font-size: 24px;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+nav img {
+    height: 70px;
+}
+@media(max-width:700px) {
+    /* HAMBURGER */
+}
+/*#endregion*/
+
+/*#region ----- Promotional Image Banner */
+.box-promo img {
+    /* display: block; */
+    width: 100%;
+    max-width: 1080px;
+    height: 500px;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: 50% 0%;
+    opacity: 30%;
+}
+/*#endregion*/
+
+/*#region ----- Main Page Content Container */
+.grid-row {	
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+}
+.grid-column {    
+    padding: 10px;
+}
+.one-half {
+    width: 50%;
+}
+/*#endregion*/
