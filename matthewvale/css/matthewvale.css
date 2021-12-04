@@ -129,3 +129,38 @@ nav img {
     width: 50%;
 }
 /*#endregion*/
+
+
+/*#region ----- Contact Form */
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    color: #282832;
+    border: 2px solid #282832;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}  
+input[type=submit] {
+    display: inline-block;
+    background: #282832;
+    font-size: 24px;
+    border: 2px solid #FFD966;
+    border-radius: 30px;
+    line-height: 50px;
+    transition: ease-in-out 0.25s;
+    cursor: pointer;
+} 
+input[type=submit]:hover {
+    background-color: #FFD966;
+    color: #282832;
+}
+.contact-form-container {
+    max-width: 1080px;
+    /* border-radius: 64px; */
+    /* background-color: #f2f2f2; */
+    padding: 64px;
+}
+/*#endregion*/
