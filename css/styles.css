@@ -67,25 +67,31 @@ html, body {
 /*#region ----- Navigation Bar Properties */
 header {
     display: flex;
-    flex-flow: wrap;
-    justify-content: space-around;
-    flex-direction: column;
+    align-items: center;
     position: fixed;
     top: 0;
     width: 100%;
     max-width: 1080px;
-    height: 100px;
     z-index: 80;
     background: #282832;
+    padding: 10px 20px;
     /* backdrop-filter: blur(2px); */
 }
-nav {
-    justify-content: center;
-    margin: 0 auto;
+header > .logo{
+    margin: 0 auto
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.main-nav .nav-start{
+  margin: 0 auto;
 }
 nav a {
-    flex: auto;
-    /* position: relative; */
+    /* flex: auto;
+    position: relative; */
     font-size: 24px;
     padding-left:1rem;
     padding-right:1rem;
@@ -162,5 +168,17 @@ input[type=submit]:hover {
     /* border-radius: 64px; */
     /* background-color: #f2f2f2; */
     padding: 64px;
+}
+/*#endregion*/
+/*#region ----- Media Queries */
+@media screen and (max-width: 768px){
+    .main-nav{
+        display: none;
+    }
+}
+@media screen and (min-width: 768px){
+    .mobile-burger{
+        display: none;
+    }
 }
 /*#endregion*/
