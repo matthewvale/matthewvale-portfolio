@@ -14,7 +14,6 @@ h1 {
     font-size: 96px;
     font-weight: normal;
     text-decoration: none;
-    margin: 64px 0 0 64px;
     color: white;
 }
 h2,h3,h4,h5,h6 {
@@ -122,20 +121,22 @@ nav img {
 /*#endregion*/
 
 /*#region ----- Main Page Content Container */
-.grid-row {	
+.page-content-container {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    text-align: center;
-}
-.grid-column {    
-    padding: 10px;
-}
-.one-half {
-    width: 50%;
+    padding: 64px;
 }
 /*#endregion*/
 
+/*#region ----- Homepage Games grid */
+.index-games-main {
+
+}
+.index-games-grid {
+
+}
+/*#endregion*/
 
 /*#region ----- Contact Form */
 input[type=text], select, textarea {
