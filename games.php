@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="game">
-                    <img src="res\images\promos\anwk_promo.jpg" alt="A New World: Kingdoms">      
+                    <img src="res\images\promos\anwk_promo_2.jpg" alt="A New World: Kingdoms">      
                     <div class="game-details-container">
                         <div class="game-title">
                             <gametitle>A New World: Kingdoms</gametitle>
