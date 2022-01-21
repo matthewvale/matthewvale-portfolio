@@ -7,8 +7,16 @@
         <?php include 'php/navibar.php'; ?> 
         <div class="box-promo">
             <img src="res\images\promos\anwk_promo.jpg" alt="A New World: Kingdoms">
+            <div class="box-promo-textarea">
+                <h2>MATTHEW VALE</h2>
+                <h3>GAME DEVELOPER</h3>
+            </div>
         </div>
-        <h1>LET'S TALK</h1>
+        <!-- MAIN CONTENT -->
+        <div class="page-content-container">
+            <h1>LET'S TALK</h1>
+        </div>
+        
         <div class="contact-form-container">
             <form action="mailto:matt.vale1@gmail.com" method="POST">
                 <label for="fname">Your Name</label>

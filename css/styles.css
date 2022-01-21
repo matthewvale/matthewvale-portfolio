@@ -20,7 +20,6 @@ h2,h3,h4,h5,h6 {
     font-family: 'Wire One', sans-serif;
     font-size: 46px;
     font-weight: normal;
-    text-decoration: underline;
     margin: 64px 0 0 64px;
     color: white;
 }
@@ -43,7 +42,8 @@ html, body {
     background-color: #FF6666;
     border: 2px solid #FF6666;
     border-radius: 30px;
-    line-height: 50px;
+    line-height: 40px;
+    margin: 5px;
     transition: ease-in-out 0.25s;
 }
 .button-style-1:hover {
@@ -54,12 +54,28 @@ html, body {
     display: inline-block;
     border: 2px solid #FFD966;
     border-radius: 30px;
-    line-height: 50px;
+    line-height: 40px;
     transition: ease-in-out 0.25s;
 }
 .button-style-2:hover {
     background-color: #FFD966;
     color: #282832;
+}
+.button-style-3 {
+    display: inline-block;
+    background-color: #FF6666;
+    border: 2px solid #FF6666;
+    border-radius: 5px;
+    line-height: 40px;
+    width: 128px;
+    text-align: center;
+    margin: 0 20px 0 0;
+    font-size: 24px;
+    transition: ease-in-out 0.25s;
+}
+.button-style-3:hover {
+    background-color: transparent;
+    border: 2px solid #FF6666;
 }
 /*#endregion*/
 
@@ -71,13 +87,15 @@ header {
     top: 0;
     width: 100%;
     max-width: 1080px;
+    height: 100px;
+    max-height: 100px;
     z-index: 80;
     background: #282832;
     padding: 10px 20px;
-    /* backdrop-filter: blur(2px); */
 }
 header > .logo{
-    margin: 0 auto
+    margin: 0 auto;
+    max-height: 80px;
 }
 .main-nav {
   display: flex;
@@ -106,8 +124,10 @@ nav img {
 /*#region ----- Promotional Image Banner */
 .box-promo {
     display: block;
-    /* position: absolute; */
+    position: relative;
     width: 100%;
+    padding-top: 94px;
+    height: 594px;
 }
 .box-promo img {
     display: inline-block;
@@ -115,8 +135,23 @@ nav img {
     height: 500px;
     max-height: 500px;
     object-fit: cover;
-    object-position: 50% 0%;
+    object-position: 50% 50%;
     opacity: 30%;
+}
+.box-promo-textarea {
+    position: relative;
+    width: 100%;
+    max-width: 1080px;
+    padding: 32px;
+    transform: translate(0%, -150%);
+}
+.box-promo-textarea h2 {
+    font-size: 100px;
+    margin: 0px;
+}
+.box-promo-textarea h3 {
+    font-size: 70px;
+    margin: 0px;
 }
 /*#endregion*/
 
@@ -125,7 +160,7 @@ nav img {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    padding: 64px;
+    padding: 0 32px 0 32px;
 }
 /*#endregion*/
 
@@ -134,6 +169,56 @@ nav img {
 
 }
 .index-games-grid {
+
+}
+/*#endregion*/
+
+/*#region ----- Games collection grid */
+.game-collection {
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+    gap: 60px;
+}
+.game {
+    display: flex;
+    flex-direction: row;
+}
+.game img {
+    min-width: 420px;
+    max-width: 420px;
+    height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border: 2px solid white;
+    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.6));
+}
+.game-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 40px;
+    height: 100%;
+    width: 100%;
+}
+.game-title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+gametitle {
+    color: #FF6666;
+    font-size: 30px;
+}
+releasedate {
+    color: #FFD966;
+    font-size: 16px;
+}
+.game-store-links {
+    display: flex;
+    flex-direction: row;
 
 }
 /*#endregion*/
@@ -165,10 +250,9 @@ input[type=submit]:hover {
     color: #282832;
 }
 .contact-form-container {
-    max-width: 1080px;
-    /* border-radius: 64px; */
-    /* background-color: #f2f2f2; */
-    padding: 64px;
+    max-width: 600px;
+    padding-left: 64px;
+    padding-right: 64px;
 }
 /*#endregion*/
 /*#region ----- Media Queries */

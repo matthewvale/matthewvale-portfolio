@@ -7,6 +7,10 @@
         <?php include 'php/navibar.php'; ?> 
         <div class="box-promo">
             <img src="res\images\promos\anwk_promo.jpg" alt="A New World: Kingdoms">
+            <div class="box-promo-textarea">
+                <h2>Matthew Vale</h2>
+                <h3>Game Developer</h3>
+            </div>
         </div>
 
         <!-- MAIN CONTENT -->
