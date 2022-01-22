@@ -15,15 +15,26 @@
 
         <!-- MAIN CONTENT -->
         <div class="page-content-container">
-            <h1>GAMES</h1>
-            <div class="index-games-main">
-                <!-- Main promo image, vertical -->
-                
-            </div>
-            <div class="index-games-grid">
-                <!-- Box grid of other games -->
-
-            </div>
+            <div class="homepage-game-container">
+                <div class="homepage-game-title">
+                    <h1>GAMES</h1>
+                    <a class="button-style-3" href="games.php">VIEW ALL</a>
+                </div>            
+                <div class="homepage-game-collection">
+                    <div class="homepage-game">
+                        <img src="res\images\promos\polyskies_promo.jpg" alt="Poly Skies">    
+                    </div>
+                    <div class="homepage-game">
+                        <img src="res\images\promos\laservasion_promo.jpg" alt="Laservasion">      
+                        <img src="res\images\promos\nightmaretrails_promo.jpg" alt="Nightmare Trails">      
+                    </div>
+                    <div class="homepage-game">
+                        <img src="res\images\promos\anwk_promo_2.jpg" alt="A New World: Kingdoms">    
+                        <img src="res\images\promos\polytowns_promo.jpg" alt="Poly Towns">
+                    </div>
+                </div>
+            </div>            
+            <h1>SKILLS</h1>
         </div>
     </body>
 </html>

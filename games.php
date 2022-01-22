@@ -16,6 +16,20 @@
         <div class="page-content-container">
             <div class="game-collection">
                 <div class="game">
+                    <img src="res\images\promos\polyskies_promo.jpg" alt="Poly Skies">      
+                    <div class="game-details-container">
+                        <div class="game-title">
+                            <gametitle>Poly Skies</gametitle>
+                            <releasedate>Coming Summer 2022</releasedate>
+                        </div>
+                        <div>Poly Skies is a casual village simulation game set in a fantasy world on floating islands. Relax with your villagers around a campfire or protect them from sky-high thieves!</div>
+                        <div class="game-store-links">
+                            <!-- <a class="button-style-3" href="https://store.steampowered.com/app/1133310/" target="_blank">STEAM</a>       -->
+                            <!-- <a class="button-style-3" href="https://redphoenixstudios.itch.io/laservasion" target="_blank">ITCH</a>       -->
+                        </div>
+                    </div>
+                </div>
+                <div class="game">
                     <img src="res\images\promos\laservasion_promo.jpg" alt="Laservasion">      
                     <div class="game-details-container">
                         <div class="game-title">
