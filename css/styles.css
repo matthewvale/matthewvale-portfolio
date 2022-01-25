@@ -51,7 +51,7 @@ html, body {
     border-radius: 30px;
     line-height: 40px;
     margin: 5px;
-    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.6));
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.5));
     transition: ease-in-out 0.2s;
 }
 .button-style-1:hover {
@@ -63,7 +63,7 @@ html, body {
     border: 2px solid #FFD966;
     border-radius: 30px;
     line-height: 40px;
-    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.6));
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.5));
     transition: ease-in-out 0.2s;
 }
 .button-style-2:hover {
@@ -80,7 +80,7 @@ html, body {
     text-align: center;
     margin: 0 20px 0 0;
     font-size: 24px;
-    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.6));
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.5));
     transition: ease-in-out 0.2s;
 }
 .button-style-3:hover {
@@ -101,6 +101,7 @@ header {
     max-height: 100px;
     z-index: 80;
     background: #282832;
+    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
     border-bottom: 2px solid #FF6666;
     padding: 10px 20px;
 }
@@ -205,7 +206,7 @@ nav img {
     object-fit: cover;
     object-position: 50% 50%;    
     border: 2px solid white;
-    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.6));
+    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
     /* filter: grayscale(1);
     opacity: 50%; */
     /* transition: 0.1s ease-in-out;    */
@@ -232,7 +233,7 @@ nav img {
     transition: 0.1s ease-in-out;    
 }
 .homepage-game img:hover {
-    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.6));
+    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
     cursor: pointer;
     opacity: 100%;
     transition: 0.1s ease-in-out;
@@ -259,7 +260,7 @@ nav img {
     object-fit: cover;
     object-position: 50% 50%;
     border: 2px solid white;
-    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.6));
+    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
 }
 .game-details-container {
     display: flex;
