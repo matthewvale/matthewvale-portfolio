@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MatthewVale.me</title>
     <meta name="description" content="This is my portfolio."/>
-    <link rel="icon" href="">
+    <link rel="icon" href="res\images\me\me_circle_512.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

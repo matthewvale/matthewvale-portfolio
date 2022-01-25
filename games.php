@@ -6,7 +6,7 @@
         <!-- NAVIGATION BAR -->
         <?php include 'php/navibar.php'; ?> 
         <div class="box-promo">
-            <img src="res\images\promos\anwk_promo.jpg" alt="A New World: Kingdoms">      
+            <img src="res\images\promos\anwk_promo.jpg">      
             <div class="box-promo-textarea">
                 <h2>Games</h2>
                 <h3>The full collection of my games</h3>

@@ -6,7 +6,7 @@
         <!-- NAVIGATION BAR -->
         <?php include 'php/navibar.php'; ?> 
         <div class="box-promo">
-            <img src="res\images\promos\anwk_promo.jpg" alt="A New World: Kingdoms">
+            <img src="res\images\promos\anwk_promo.jpg">
             <div class="box-promo-textarea">
                 <h2>Matthew Vale</h2>
                 <h3>Game Developer</h3>
@@ -21,7 +21,7 @@
                     <a class="button-style-3" href="games.php">VIEW ALL</a>
                 </div>            
                 <div class="homepage-game-collection">
-                    <div class="homepage-game">
+                    <div class="homepage-game-promo">
                         <img src="res\images\promos\polyskies_promo.jpg" alt="Poly Skies">    
                     </div>
                     <div class="homepage-game">
