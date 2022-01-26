@@ -35,6 +35,32 @@
                 </div>
             </div>            
             <h1>SKILLS</h1>
+            <div class="skills-container">
+                <div class="skill-row">
+                    <div class="skill">
+                        <div class="skill-strong" style="width:100%"><h2>Unity</h2></div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-strong" style="width:100%"><h2>C# Programming</h2></div>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill">
+                        <div class="skill-medium" style="width:90%"><h2>Code Optimization</h2></div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-medium" style="width:70%"><h2>Steam API Integration</h2></div>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill">
+                        <div class="skill-lesser" style="width:50%"><h2>Colour Theory</h2></div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-lesser" style="width:50%"><h2>3D Models</h2></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
