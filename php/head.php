@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MatthewVale.me</title>
+    <title>Matthew Vale Portfolio</title>
     <meta name="description" content="This is my portfolio."/>
     <link rel="icon" href="res\images\me\me_circle_512.png">
 
