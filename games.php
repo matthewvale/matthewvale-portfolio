@@ -6,26 +6,26 @@
         <!-- NAVIGATION BAR -->
         <?php include 'php/navibar.php'; ?> 
         <div class="box-promo">
-            <img src="res\images\promos\anwk_promo.jpg">      
+        <img src="res\images\promos\promo_banner.jpg">  
             <div class="box-promo-textarea">
-                <h2>Games</h2>
-                <h3>The full collection of my games</h3>
+                <h1>Games
+                <span>The full collection of my games</span></h1>
             </div>      
         </div>
         <!-- MAIN CONTENT -->
         <div class="page-content-container">
             <div class="game-collection">
                 <div class="game">
-                    <img src="res\images\promos\polyskies_promo.jpg" alt="Poly Skies">      
+                    <img src="res\images\promos\polyskies_promo2.jpg" alt="Poly Skies">      
                     <div class="game-details-container">
                         <div class="game-title">
                             <gametitle>Poly Skies</gametitle>
-                            <releasedate>Coming Autumn 2022</releasedate>
+                            <releasedate>Released: Feb 23 2023</releasedate>
                         </div>
                         <div>Poly Skies is a casual village simulation game set in a fantasy world on floating islands. Relax with your villagers around a campfire or protect them from sky-high thieves!</div>
                         <div class="game-store-links">
-                            <a class="button-style-3" href="https://store.steampowered.com/app/1952340/" target="_blank">STEAM</a>      
-                            <!-- <a class="button-style-3" href="https://redphoenixstudios.itch.io/laservasion" target="_blank">ITCH</a>       -->
+                            <a class="button-style-3" href="https://store.steampowered.com/app/1952340?utm_source=portfolio&utm_medium=web" target="_blank">STEAM</a>      
+                            <a class="button-style-3" href="https://redphoenixstudios.itch.io/poly-skies" target="_blank">ITCH</a>      
                         </div>
                     </div>
                 </div>

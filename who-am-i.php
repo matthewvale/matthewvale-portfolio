@@ -7,10 +7,10 @@
     <!-- NAVIGATION BAR -->
     <?php include 'php/navibar.php'; ?>
     <div class="box-promo">
-        <img src="res\images\promos\anwk_promo.jpg">
+    <img src="res\images\promos\promo_banner.jpg">
         <div class="box-promo-textarea">
-            <h2>Who Am I?</h2>
-            <h3>A little biography</h3>
+            <h1>Who Am I?
+            <span>A little biography</span></h1>
         </div>
     </div>
     <!-- MAIN CONTENT -->

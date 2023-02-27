@@ -76,7 +76,7 @@ html, body {
     line-height: 40px;
     width: 128px;
     text-align: center;
-    margin: 0;
+    margin-right: 10px;
     font-size: 20px;
     filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.5));
     transition: all 0.5s ease-in-out;
@@ -144,7 +144,7 @@ nav img {
     max-height: 500px;
     object-fit: cover;
     object-position: 50% 30%;
-    opacity: 30%;
+    opacity: 60%;
 }
 .box-promo-textarea {
     position: relative;
@@ -208,7 +208,7 @@ nav img {
     height: 500px;
 }
 .homepage-game-promo img {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     padding: 5px;
     object-fit: cover;
@@ -256,6 +256,7 @@ nav img {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+    margin-bottom: 30px;
 }
 .skill-row {
     display: flex;
@@ -268,7 +269,7 @@ nav img {
     margin: 0px;
     min-width: 185px;
     text-align: start;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 /* .skill-strong {
     border-bottom: 5px solid #FF6666;

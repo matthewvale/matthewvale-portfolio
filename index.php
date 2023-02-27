@@ -6,7 +6,7 @@
         <!-- NAVIGATION BAR -->
         <?php include 'php/navibar.php'; ?> 
         <div class="box-promo">
-            <img src="res\images\promos\anwk_promo.jpg">
+            <img src="res\images\promos\promo_banner.jpg">
             <div class="box-promo-textarea">
                 <h1>Matthew Vale
                 <span>Game Developer</span></h1>
@@ -41,31 +41,31 @@
                 <div class="skill-row">
                     <div class="skill">
                         <h2>Unity</h2>
-                        <progress id="file" value="50" max="100"> 32% </progress>
+                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
                     </div>
                     <div class="skill">
                         <h2>C# Programming</h2>
-                        <progress id="file" value="50" max="100"> 32% </progress>
+                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
                     </div>
                 </div>
                 <div class="skill-row">
                     <div class="skill">
                         <h2>Code Optimization</h2>
-                        <progress id="file" value="50" max="100"> 32% </progress>
+                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
                     </div>
                     <div class="skill">
                         <h2>Colour Theory</h2>
-                        <progress id="file" value="50" max="100"> 32% </progress>
+                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
                     </div>
                 </div>
                 <div class="skill-row">
                     <div class="skill">
                         <h2>Low poly models</h2>
-                        <progress id="file" value="50" max="100"> 32% </progress>
+                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
                     </div>
                     <div class="skill">
-                        <h2>Being a Legend</h2>
-                        <progress id="file" value="100" max="100"> 32% </progress>
+                        <h2>Memory Optimization</h2>
+                        <!-- <progress id="file" value="100" max="100"> 32% </progress> -->
                     </div>
                 </div>
             </div>

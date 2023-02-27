@@ -6,10 +6,10 @@
         <!-- NAVIGATION BAR -->
         <?php include 'php/navibar.php'; ?> 
         <div class="box-promo">
-            <img src="res\images\promos\anwk_promo.jpg">
+        <img src="res\images\promos\promo_banner.jpg">
             <div class="box-promo-textarea">
-                <h2>Matthew Vale</h2>
-                <h3>Game Developer</h3>
+                <h1>Contact
+                <span>Get in touch!</span></h1>
             </div>
         </div>
         <!-- MAIN CONTENT -->
@@ -19,8 +19,8 @@
             <p>Topics I enjoy discussing:</p>
             <li>Unity</li>
             <li>C#</li>
-            <li>Optimization Techniques</li>
-            <li>Colour Theory</li>
+            <li>Optimization techniques</li>
+            <li>Video games</li>
             <li>Computer Building</li>
             <p>I look forward to hearing from you!</p>
         </div>        
