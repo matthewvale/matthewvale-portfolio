@@ -25,4 +25,6 @@
             <p>I look forward to hearing from you!</p>
         </div>        
     </body>
+    <!-- FOOTER -->
+    <?php include 'php/footer.php'; ?>
 </html>

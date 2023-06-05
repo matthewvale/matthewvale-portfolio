@@ -36,39 +36,24 @@
             
             <div class="skills-container">
                 <div class="homepage-game-title">            
-                    <h2>SKILLS</h2>
+                    <h2>WHAT I USE AND DO</h2>
                 </div>
-                <div class="skill-row">
+                <div class="skill-row">                    
                     <div class="skill">
-                        <h2>Unity</h2>
-                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
+                        <ul>
+                            <li><h2>Unity Game Engine</h2></li>
+                            <li><h2>Visual Studio</h2></li>
+                            <li><h2>Blender for 3D models</h2></li>
+                            <li><h2>Inkscape for 2D art</h2></li>
+                            <li><h2>C#, Java, Python</h2></li>
+                            <li><h2>C# Optimization</h2></li>
+                            <li><h2>Memory Optimization</h2></li>
+                        </ul>
                     </div>
-                    <div class="skill">
-                        <h2>C# Programming</h2>
-                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <div class="skill">
-                        <h2>Code Optimization</h2>
-                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
-                    </div>
-                    <div class="skill">
-                        <h2>Colour Theory</h2>
-                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <div class="skill">
-                        <h2>Low poly models</h2>
-                        <!-- <progress id="file" value="50" max="100"> 32% </progress> -->
-                    </div>
-                    <div class="skill">
-                        <h2>Memory Optimization</h2>
-                        <!-- <progress id="file" value="100" max="100"> 32% </progress> -->
-                    </div>
-                </div>
+                </div>                            
             </div>
         </div>
     </body>
+    <!-- FOOTER -->
+    <?php include 'php/footer.php'; ?>
 </html>

@@ -22,7 +22,7 @@
                             <gametitle>Poly Skies</gametitle>
                             <releasedate>Released: Feb 23 2023</releasedate>
                         </div>
-                        <div>Poly Skies is a casual village simulation game set in a fantasy world on floating islands. Relax with your villagers around a campfire or protect them from sky-high thieves!</div>
+                        <div>Poly Skies is an introductory city builder designed to help you relax. Take care of your villagers, expand to new islands, unlock secrets and defend from sky-high threats.</div>
                         <div class="game-store-links">
                             <a class="button-style-3" href="https://store.steampowered.com/app/1952340?utm_source=portfolio&utm_medium=web" target="_blank">STEAM</a>      
                             <a class="button-style-3" href="https://redphoenixstudios.itch.io/poly-skies" target="_blank">ITCH</a>      
@@ -36,7 +36,7 @@
                             <gametitle>Laservasion</gametitle>
                             <releasedate>Released: Sept 3 2019</releasedate>
                         </div>
-                        <div>The retro arcade inspired shoot 'em up with addictive combat propelled by the music.</div>
+                        <div>A retro arcade inspired shoot 'em up with addictive combat propelled by the music.</div>
                         <div class="game-store-links">
                             <a class="button-style-3" href="https://store.steampowered.com/app/1133310/" target="_blank">STEAM</a>      
                             <a class="button-style-3" href="https://redphoenixstudios.itch.io/laservasion" target="_blank">ITCH</a>      
@@ -86,4 +86,6 @@
             </div>
         </div>
     </body>
+    <!-- FOOTER -->
+    <?php include 'php/footer.php'; ?>
 </html>

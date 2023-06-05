@@ -1,4 +1,5 @@
 /*#region ----- Global Body Properties */
+/* FONTS: Poppins, Wire One */
 *{
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
@@ -91,6 +92,7 @@ html, body {
 header {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0;
     width: 100%;
@@ -104,24 +106,25 @@ header {
 }
 header > .logo{
     margin: 0 auto;
-    max-height: 50px;
+    /* max-height: 50px; */
 }
 .main-nav {
   display: flex;
-  align-items: center;
+  align-items: center;  
   justify-content: space-between;
   width: 100%;
+  max-width: 1080px;
 }
-.main-nav .nav-start{
+/* .main-nav .nav-main{
   margin: 0 auto;
-}
+} */
 nav a {
     font-size: 20px;
     padding-left:1rem;
     padding-right:1rem;
 }
 nav img {
-    height: 70px;
+    height: 50px;
 }
 @media(max-width:700px) {
     /* HAMBURGER */
@@ -135,7 +138,7 @@ nav img {
     width: 100%;
     padding-top: 70px;
     height: 400px;
-    margin-bottom: 50px;
+    margin-bottom: 16px;
 }
 .box-promo img {
     display: inline-block;
@@ -144,14 +147,13 @@ nav img {
     max-height: 500px;
     object-fit: cover;
     object-position: 50% 30%;
-    opacity: 60%;
+    opacity: 50%;
 }
 .box-promo-textarea {
     position: relative;
     width: 100%;
     height: fit-content;
-    max-width: 1080px;
-    padding-left: 32px;
+    text-align: center;
     transform: translate(0%, -140%);
 }
 .box-promo-textarea h1 {
@@ -239,14 +241,14 @@ nav img {
     /* border: 1px solid white; */
     filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
     
-    filter: grayscale(1);
-    opacity: 40%;
+    /* filter: grayscale(1); */
+    /* opacity: 40%; */
     transition: all 0.5s ease-in-out;   
 }
 .homepage-game img:hover {
     cursor: pointer;
-    opacity: 100%;
-    filter: grayscale(0);    
+    /* opacity: 100%;
+    filter: grayscale(0);     */
     transition: all 0.5s ease-in-out;
 }
 /*#endregion*/
@@ -254,14 +256,15 @@ nav img {
 /*#region ----- Homepage Skills grid */
 .skills-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
     margin-top: 50px;
     margin-bottom: 30px;
 }
 .skill-row {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     width: 100%;
     gap: 10%;
 }
@@ -271,15 +274,6 @@ nav img {
     text-align: start;
     margin-bottom: 10px;
 }
-/* .skill-strong {
-    border-bottom: 5px solid #FF6666;
-}
-.skill-medium {
-    border-bottom: 5px solid #FFD966;
-}
-.skill-lesser {
-    border-bottom: 5px solid #59FFF5;
-} */
 /*#endregion*/
 
 /*#region ----- Games collection grid */
@@ -344,5 +338,56 @@ releasedate {
     .mobile-burger{
         display: none;
     }
+}
+/*#endregion*/
+
+/*#region ----- Testimonials */
+.testimonial-grid {
+    display: flex;    
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+    gap: 20px;
+}
+.testimonial-item {
+    background-color: #282832;
+    width: 40%;
+    padding: 15px;
+    border: 2px solid white;
+    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
+}
+reviewer {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #FFD966;
+    margin: 0 auto;
+}
+position {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-style: italic;
+    color: #FFD966;
+}
+/*#endregion*/
+
+/*#region ----- Footer */
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    margin-top: 64px;
+    max-width: 100%;
+    background-color:#282832;
+    border-top: 2px solid #FF6666;
+}
+.footer-section {
+    text-align: center;
+    margin: 16px;
+}
+.footer-section i {
+    width: 100%;
+    text-align: center;
 }
 /*#endregion*/
