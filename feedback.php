@@ -16,13 +16,13 @@
         <div class="page-content-container">
             <div class="testimonial-grid">
                 <div class="testimonial-item">
-                    <p>Testimonials coming soon.</p>
-                    <reviewer>Person</reviewer>
+                    <p>"Working alongside Matthew was an absolute privilege. Their exceptional talent and knowledge at programming & game development greatly enhanced our video game projects and allowed us to build more high-quality products in a shorter space of time.”</p>
+                    <reviewer>Dan B.</reviewer>
                     <br>
-                    <position>Position @ Company</position>
+                    <position>CTO @ Waving Bear Studios</position>
                 </div>
                 <div class="testimonial-item">
-                <p>Testimonials coming soon.</p>
+                <p>More testimonials coming soon.</p>
                     <reviewer>Person</reviewer>
                     <br>
                     <position>Position @ Company</position>
