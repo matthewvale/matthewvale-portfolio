@@ -9,7 +9,7 @@
         <img src="res\images\promos\promo_banner.jpg">  
             <div class="box-promo-textarea">
                 <h1>Games
-                <span>The full collection of my games</span></h1>
+                <span>My released projects</span></h1>
             </div>      
         </div>
         <!-- MAIN CONTENT -->
