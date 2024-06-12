@@ -8,14 +8,19 @@
         <div class="box-promo">
         <img src="res\images\promos\promo_banner.jpg">
             <div class="box-promo-textarea">
-                <h1>Who Am I?
-                <span>A little biography</span></h1>
+                <h1>Who Am I?</h1>
+                <h2>Where have I been and where am I going?</h2>
             </div>
         </div>
         <!-- MAIN CONTENT -->
         <div class="page-content-container">
-            <p>Matthew Vale, game developer since 2009.</p>
-            <p>Please visit my blog for some technical posts! https://matthewvaleblog.wordpress.com/</p>
+            <div class="skill-title">
+                <h3>Don't worry, I didn't hit my head... I'm Matthew, professional game developer since 2022 and solo indie developer since 2009.</h3>
+                <h3>That's like, 15 years of looking at the Unity Editor...</h3>
+                <h3>In my personal development blog, I track my game dev journey and write technical blog posts, I really recommend you take a look!</h3>
+                <br></br>
+                <h3><a href="https://matthewvaleblog.wordpress.com/" target="_blank">Visit my development blog here</a></h3>
+            </div>            
         </div>
     </body>
     <!-- FOOTER -->

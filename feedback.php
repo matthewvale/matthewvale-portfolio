@@ -8,8 +8,8 @@
         <div class="box-promo">
         <img src="res\images\promos\promo_banner.jpg">  
             <div class="box-promo-textarea">
-                <h1>Testimonials
-                <span>Here's what people have to say</span></h1>
+                <h1>Testimonials</h1>
+                <h2>Here's what people have to say about me and my work</h2>
             </div>      
         </div>
         <!-- MAIN CONTENT -->
@@ -17,15 +17,10 @@
             <div class="testimonial-grid">
                 <div class="testimonial-item">
                     <p>"Working alongside Matthew was an absolute privilege. Their exceptional talent and knowledge at programming & game development greatly enhanced our video game projects and allowed us to build more high-quality products in a shorter space of time.”</p>
+                    <br></br>
                     <reviewer>Dan B.</reviewer>
                     <br>
                     <position>CTO @ Waving Bear Studios</position>
-                </div>
-                <div class="testimonial-item">
-                <p>More testimonials coming soon.</p>
-                    <reviewer>Person</reviewer>
-                    <br>
-                    <position>Position @ Company</position>
                 </div>
             </div>
         </div>

@@ -1,44 +1,49 @@
 /*#region ----- Global Body Properties */
-/* FONTS: Poppins, Wire One */
+/* FONTS :: Inter, Poppins, Roboto */
 *{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-    color: white;
-}
-a {
-    font-size: 16px;
-    color: white;
-    text-decoration: none;
-}
-h1 {
-    font-family: 'Wire One', sans-serif;
-    font-size: 96px;
+    font-size: 18px;
     font-weight: normal;
     text-decoration: none;
-    color: white;
-}
-h2,h3,h4,h5,h6,span {
-    font-family: 'Wire One', sans-serif;
-    font-size: 46px;
-    font-weight: normal;
     margin: 0;
     color: white;
 }
-p {
-    font-size: 24px;
-}
+
 i {
     font-style: italic;
 }
+
+h3 {
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h1 {
+    font-size: 68px;
+}
+
 accent-red {
     color: #FF6666
 }
+
 accent-yellow {
     color: #FFD966
 }
+
 html, body {    
 	background-color: #282832;
     margin: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
 }
 /*#endregion*/
 
@@ -72,7 +77,7 @@ html, body {
 .button-style-3 {
     display: inline-block;
     background-color: #FF6666;
-    border: 2px solid #FF6666;
+    border: 2px solid #FF6666;    
     border-radius: 5px;
     line-height: 40px;
     width: 128px;
@@ -135,6 +140,7 @@ nav img {
 .box-promo {
     display: block;
     position: relative;
+    text-align: center;
     width: 100%;
     padding-top: 70px;
     height: 400px;
@@ -150,20 +156,9 @@ nav img {
     opacity: 50%;
 }
 .box-promo-textarea {
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: fit-content;
-    text-align: center;
-    transform: translate(0%, -140%);
-}
-.box-promo-textarea h1 {
-    font-size: 100px;
-    margin: 0px;
-}
-.box-promo-textarea h1 span {
-    font-size: 70px;
-    margin: 0px;
-    display: block;
+    top: 50%;
 }
 /*#endregion*/
 
@@ -177,30 +172,12 @@ nav img {
     margin: 0 auto;
     padding: 0 32px 0 32px;
 }
-.page-content-container p {
-    font-size: 20px;
-}
+/* .page-content-container a:link {
+    color: #FF6666;
+} */
 /*#endregion*/
 
 /*#region ----- Homepage Games grid */
-.homepage-game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-.homepage-game-title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-.homepage-game-title h2{
-    margin: 15px 0 25px;
-    font-size: 60px;
-}
 .homepage-game-collection {
     display: flex;
     flex-direction: row;
@@ -208,6 +185,7 @@ nav img {
     position: relative;
     width: 100%;
     height: 500px;
+    top: 18px;
 }
 .homepage-game-promo img {
     /* width: 100%; */
@@ -257,22 +235,22 @@ nav img {
 .skills-container {
     display: flex;
     flex-direction: column;    
-    margin-top: 50px;
-    margin-bottom: 30px;
+    align-items: center;
+    margin-top: 30px;
+}
+.skill-title h3 {
+    text-align: center;
+    padding-top: 16px;
+}
+.skill-title a {
+    font-size: 26px;
+    color: #FF6666;
 }
 .skill-row {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
     width: 100%;
-    gap: 10%;
-}
-.skill {
-    margin: 0px;
-    min-width: 185px;
-    text-align: start;
-    margin-bottom: 10px;
 }
 /*#endregion*/
 
@@ -307,19 +285,22 @@ nav img {
     height: 100%;
     width: 100%;
 }
+.game-details-container a {
+    color: white;
+}
 .game-title {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
 }
 gametitle {
     color: #FF6666;
-    font-size: 30px;
+    font-size: 36px;
 }
 releasedate {
     color: #FFD966;
-    font-size: 16px;
+    font-size: 18px;
 }
 .game-store-links {
     display: flex;
@@ -356,15 +337,17 @@ releasedate {
     padding: 15px;
     border: 2px solid white;
     filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
+    transition: all 0.5s ease-in-out;
+}
+.testimonial-item:hover {
+    border: 2px solid #FF6666;
 }
 reviewer {
-    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: #FFD966;
     margin: 0 auto;
 }
 position {
-    font-family: 'Poppins', sans-serif;
     font-size: 17px;
     font-style: italic;
     color: #FFD966;
@@ -383,6 +366,8 @@ position {
     border-top: 2px solid #FF6666;
 }
 .footer-section {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     margin: 16px;
 }
