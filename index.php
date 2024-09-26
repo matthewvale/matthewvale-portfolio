@@ -15,7 +15,9 @@
         <!-- MAIN CONTENT -->
         <div class="page-content-container"> 
             <div class="skill-title">
-                <h3>Hi, Matt here. I've been making games using Unity for over a decade. Check out my published games <a href="games.php">here</a>.</h3>
+                <h3>Hi, Matt here. I've been making games using Unity for over a decade. 
+                Check out my personal published games <a href="personal-games.php">here</a>
+                and see my professional work <a href="professional-games.php">here</a>.</h3>
                 <h3>You can also look at my blog <a href="https://matthewvaleblog.wordpress.com/">here</a>, where I cover more technical aspects of my work.</h3>
             </div>            
             <div class="homepage-game-collection">
@@ -23,12 +25,12 @@
                     <img src="res\images\promos\polyskies_promo.jpg" alt="Poly Skies">    
                 </div>
                 <div class="homepage-game">
-                    <img src="res\images\promos\laservasion_promo.jpg" alt="Laservasion">      
-                    <img src="res\images\promos\nightmaretrails_promo.jpg" alt="Nightmare Trails">      
+                    <img src="res\images\personal\laservasion.jpg" alt="Laservasion">      
+                    <img src="res\images\personal\nightmaretrails.jpg" alt="Nightmare Trails">      
                 </div>
                 <div class="homepage-game">
-                    <img src="res\images\promos\anwk_promo_2.jpg" alt="A New World: Kingdoms">    
-                    <img src="res\images\promos\polytowns_promo.jpg" alt="Poly Towns">
+                    <img src="res\images\personal\anwk.jpg" alt="A New World: Kingdoms">    
+                    <img src="res\images\personal\polytowns.jpg" alt="Poly Towns">
                 </div>
             </div>
             <div class="skills-container">

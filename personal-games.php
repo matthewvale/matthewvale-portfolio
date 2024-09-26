@@ -8,15 +8,15 @@
         <div class="box-promo">
             <img src="res\images\promos\promo_banner.jpg">  
             <div class="box-promo-textarea">
-                <h1>Games</h1>
-                <h2>A list of all my published games</h2>
+                <h1>Personal Games</h1>
+                <h2>A list of all my published personal games</h2>
             </div>      
         </div>
         <!-- MAIN CONTENT -->
         <div class="page-content-container">
             <div class="game-collection">
                 <div class="game">
-                    <img src="res\images\promos\polyskies_promo2.jpg" alt="Poly Skies">      
+                    <img src="res\images\personal\polyskies.jpg" alt="Poly Skies">      
                     <div class="game-details-container">
                         <div class="game-title">
                             <gametitle>Poly Skies</gametitle>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="game">
-                    <img src="res\images\promos\laservasion_promo.jpg" alt="Laservasion">      
+                    <img src="res\images\personal\laservasion.jpg" alt="Laservasion">      
                     <div class="game-details-container">
                         <div class="game-title">
                             <gametitle>Laservasion</gametitle>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="game">
-                    <img src="res\images\promos\nightmaretrails_promo.jpg" alt="Nightmare Trails">      
+                    <img src="res\images\personal\nightmaretrails.jpg" alt="Nightmare Trails">      
                     <div class="game-details-container">
                         <div class="game-title">
                             <gametitle>Nightmare Trails</gametitle>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="game">
-                    <img src="res\images\promos\anwk_promo_2.jpg" alt="A New World: Kingdoms">      
+                    <img src="res\images\personal\anwk.jpg" alt="A New World: Kingdoms">      
                     <div class="game-details-container">
                         <div class="game-title">
                             <gametitle>A New World: Kingdoms</gametitle>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="game">
-                    <img src="res\images\promos\polytowns_promo.jpg" alt="Poly Towns">      
+                    <img src="res\images\personal\polytowns.jpg" alt="Poly Towns">      
                     <div class="game-details-container">
                         <div class="game-title">
                             <gametitle>Poly Towns</gametitle>

@@ -6,7 +6,8 @@
     <nav class="main-nav"> 
       <div class="nav-main">   
         <a class="button-style-1" href="index.php">HOME</a>        
-        <a class="button-style-1" href="games.php">GAMES</a>
+        <a class="button-style-1" href="personal-games.php">PERSONAL</a>
+        <a class="button-style-1" href="professional-games.php">PROFESSIONAL</a>
         <a class="button-style-1" href="who-am-i.php">WHO AM I?</a>
         <a class="button-style-1" href="feedback.php">TESTIMONIALS</a>
       </div>
