@@ -19,6 +19,7 @@
                 Check out my personal published games <a href="personal-games.php">here</a>
                 and see my professional work <a href="professional-games.php">here</a>.</h3>
                 <h3>You can also look at my blog <a href="https://matthewvaleblog.wordpress.com/">here</a>, where I cover more technical aspects of my work.</h3>
+                <h3>Finally, go visit my GitHub <a href="https://github.com/MattVale1">here</a>, which contains my own codebase for all my Unity projects.</h3>
             </div>            
             <div class="homepage-game-collection">
                 <div class="homepage-game-promo">
