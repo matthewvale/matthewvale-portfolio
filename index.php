@@ -16,10 +16,11 @@
         <div class="page-content-container"> 
             <div class="skill-title">
                 <h3>Hi, Matt here. I've been making games using Unity for over a decade. 
-                Check out my personal published games <a href="personal-games.php">here</a>
-                and see my professional work <a href="professional-games.php">here</a>.</h3>
-                <h3>You can also look at my blog <a href="https://matthewvaleblog.wordpress.com/">here</a>, where I cover more technical aspects of my work.</h3>
-                <h3>Finally, go visit my GitHub <a href="https://github.com/MattVale1">here</a>, which contains my own codebase for all my Unity projects.</h3>
+                Check out my personal games <a href="personal-games.php">here</a>
+                and my professional work <a href="professional-games.php">here</a>.</h3>
+                <h3>View my <a href="https://matthewvaleblog.wordpress.com/">Blog</a>, where I cover more technical aspects of my work.</h3>
+                <h3>View my <a href="https://github.com/MattVale1">GitHub</a>, which contains my own codebase for all my Unity projects.</h3>
+                <h3>View my <a href="https://miro.com/app/board/uXjVKO9t2B8=/?share_link_id=118558371974">Miro board</a>, where I planned my space game project.</h3>
             </div>            
             <div class="homepage-game-collection">
                 <div class="homepage-game-promo">
@@ -42,26 +43,30 @@
                     <p>C#</p>
                     <p>Java</p>
                     <p>Python</p>
+                    <p>Just enough HTML and CSS to make this website!</p>
                 </div>                    
                 <div class="skill-title">
                     <h3>TOOLS</h3>
                 </div>
                 <div class="skill-row">     
-                    <p>Unity Engine</p>
+                    <p>Unity Engine (since 2.6!)</p>
                     <p>VS Community + Code</p>
                     <p>Blender</p>
                     <p>Inkscape</p>
                     <p>Paint dot net</p>
+                    <p>Eclipse</p>
                 </div>     
                 <div class="skill-title">
                     <h3>TECHNICAL SKILLS</h3>
                 </div>
                 <div class="skill-row">
-                    <p>Client Programming</p>
-                    <p>Project Optimization</p>
+                    <p>Client programming</p>
+                    <p>Project optimization</p>
+                    <p>Level Design</p>
+                    <p>UI and UX flows</p>
                 </div>     
                 <div class="skill-title">
-                    <h3>MANAGEMENT TOOLS</h3>
+                    <h3>PLANNING TOOLS</h3>
                 </div>
                 <div class="skill-row">     
                     <p>Confluence</p>

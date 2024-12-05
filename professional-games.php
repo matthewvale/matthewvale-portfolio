@@ -14,20 +14,7 @@
         </div>
         <!-- MAIN CONTENT -->
         <div class="page-content-container">
-            <div class="game-collection">
-                <div class="game">
-                    <img src="res\images\professional\wwedomination.jpg" alt="WWE Domination">
-                    <div class="game-details-container">
-                        <div class="game-title">
-                            <gametitle>WWE Domination</gametitle>
-                            <releasedate>A game by Pixel Toys, partnered with Scopely Inc.</releasedate>
-                        </div>
-                        <p>An officially branded WWE team battle game. During my time at Pixel Toys I worked on various aspects of the meta game using server-driven client code. I personally created the Blitz game mode, had a major hand in the Synergy system, set up various UI scenes and helped with the PvE game mode.</p>
-                        <div class="game-store-links">
-                            <a class="button-style-3" href="https://play.google.com/store/apps/details?id=com.scopely.wwedomination" target="_blank">Google Play</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="game-collection">                
                 <div class="game">
                     <img src="res\images\professional\stuffed.jpg" alt="STUFFED">      
                     <div class="game-details-container">
