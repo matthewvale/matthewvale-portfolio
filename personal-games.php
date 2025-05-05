@@ -24,8 +24,8 @@
                         </div>
                         <p>Poly Skies is an introductory city builder designed to help you relax. Take care of your villagers, expand to new islands, unlock secrets and defend from sky-high threats.</p>
                         <div class="game-store-links">
-                            <a class="button-style-3" href="https://store.steampowered.com/app/1952340?utm_source=portfolio&utm_medium=web" target="_blank">STEAM</a>      
-                            <a class="button-style-3" href="https://redphoenixstudios.itch.io/poly-skies" target="_blank">ITCH</a>      
+                            <a class="button-style-steam" href="https://store.steampowered.com/app/1952340?utm_source=portfolio&utm_medium=web" target="_blank">STEAM</a>      
+                            <a class="button-style-itch" href="https://redphoenixstudios.itch.io/poly-skies" target="_blank">ITCH</a>      
                         </div>
                     </div>
                 </div>
@@ -38,8 +38,8 @@
                         </div>
                         <p>A retro arcade inspired shoot 'em up with addictive combat propelled by the music.</p>
                         <div class="game-store-links">
-                            <a class="button-style-3" href="https://store.steampowered.com/app/1133310/" target="_blank">STEAM</a>      
-                            <a class="button-style-3" href="https://redphoenixstudios.itch.io/laservasion" target="_blank">ITCH</a>      
+                            <a class="button-style-steam" href="https://store.steampowered.com/app/1133310/" target="_blank">STEAM</a>      
+                            <a class="button-style-itch" href="https://redphoenixstudios.itch.io/laservasion" target="_blank">ITCH</a>      
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         </div>
                         <p>Fight off monsters in a national park and send them back to their own dimension!</p>
                         <div class="game-store-links">
-                            <a class="button-style-3" href="https://store.steampowered.com/app/984810/" target="_blank">STEAM</a>      
+                            <a class="button-style-steam" href="https://store.steampowered.com/app/984810/" target="_blank">STEAM</a>      
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         </div>
                         <p>A New World: Kingdoms is a turn-based strategic 4X game. Carefully expand your kingdom by constructing buildings and managing your resources. Building your own empire is not easy; there will be challenges along the way, from mountains to navigate to your rival and his warriors.</p>
                         <div class="game-store-links">
-                            <a class="button-style-3" href="https://store.steampowered.com/app/628650/" target="_blank">STEAM</a>    
+                            <a class="button-style-steam" href="https://store.steampowered.com/app/628650/" target="_blank">STEAM</a>    
                         </div>
                     </div>
                 </div>
@@ -78,8 +78,8 @@
                         </div>
                         <p>The casual town builder that takes place on floating islands in a fantasy world. Grow your town and manage your resources in this challenging builder.</p>
                         <div class="game-store-links">
-                            <a class="button-style-3" href="https://store.steampowered.com/app/438730/" target="_blank">STEAM</a>      
-                            <a class="button-style-3" href="https://redphoenixstudios.itch.io/poly-towns" target="_blank">ITCH</a>      
+                            <a class="button-style-steam" href="https://store.steampowered.com/app/438730/" target="_blank">STEAM</a>      
+                            <a class="button-style-itch" href="https://redphoenixstudios.itch.io/poly-towns" target="_blank">ITCH</a>      
                         </div>
                     </div>
                 </div>

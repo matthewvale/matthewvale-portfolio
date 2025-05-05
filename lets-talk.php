@@ -15,12 +15,12 @@
         <!-- MAIN CONTENT -->
         <div class="page-content-container">
             <!-- <h1>LET'S TALK</h1> -->
-            <div class="skill-title">
-                <h3>Would you like to discuss my work? You can find me on...</h3> 
-                <h3><a href="https://www.linkedin.com/in/matthew-vale/" target="_blank">LinkedIn</a></h3> 
-                <h3><a href="https://x.com/RedPStudios" target="_blank">Twitter</a></h3> 
-                <h3><a href="https://discord.gg/2uTq5GXCfy" target="_blank">Discord</a></h3>
-                <h3>I look forward to hearing from you!</h3>
+            <div class="centered-text">
+                <p>Would you like to discuss my work? You can find me on...</p> 
+                <p><a href="https://www.linkedin.com/in/matthew-vale/" target="_blank">LinkedIn</a></p> 
+                <p><a href="https://x.com/RedPStudios" target="_blank">Twitter</a></p> 
+                <p><a href="https://discord.gg/2uTq5GXCfy" target="_blank">Discord</a></p>
+                <p>I look forward to hearing from you!</p>
             </div>            
         </div>        
     </body>
