@@ -16,7 +16,7 @@
         <div class="page-content-container">
             <div class="centered-text">
                 <p>Don't worry, I didn't hit my head... I'm Matthew, professional game developer since 2022 and solo indie developer since 2009.</p>
-                <p>That's 15 years of looking at the Unity Editor...</p>
+                <p>That's 16+ years of looking at the Unity Editor...</p>
                 <p>In my personal development blog, I track my game dev journey and write technical blog posts, I really recommend you take a look!</p>
                 <p><a href="https://matthewvaleblog.wordpress.com/" target="_blank">Visit my development blog here</a></p>
                 <br></br>

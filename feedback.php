@@ -9,7 +9,7 @@
         <img src="res\images\promos\promo_banner.jpg">  
             <div class="box-promo-textarea">
                 <h1>Testimonials</h1>
-                <h2>Here's what people have to say about me and my work</h2>
+                <h2>Here's what people say</h2>
             </div>      
         </div>
         <!-- MAIN CONTENT -->

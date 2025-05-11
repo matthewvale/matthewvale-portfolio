@@ -186,9 +186,15 @@ nav img {
     opacity: 50%;
 }
 .box-promo-textarea {
+    display: flex;
+    flex-direction: column;
     position: absolute;
+    justify-content: center;
+    margin: 0 auto;
+    padding-left: 64px;
+    padding-right: 64px;
     width: 100%;
-    top: 45%;
+    top: 40%;
 }
 /*#endregion*/
 
@@ -200,13 +206,13 @@ nav img {
     width: 100%;
     max-width: 1080px;
     margin: 0 auto;
-    padding: 0 32px 0 32px;
+    gap: 28px;
+    padding: 24px 32px 24px 32px;
 }
 
 .centered-text p {
     font-size: 24px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 8px;
     text-align: center;
 }
 
@@ -222,6 +228,7 @@ nav img {
     flex-direction: row;
     gap: 8px;
     justify-content: space-between;
+    align-items: stretch;
     position: relative;
     width: 100%;
     height: 500px;
@@ -230,7 +237,7 @@ nav img {
 }
 .homepage-game-promo img {
     height: 100%;
-    border-radius: 0.25em;
+    border-radius: 1em;
     object-fit: cover;
     object-position: 50% 50%;    
     border: 2px solid #1B2838;
@@ -243,12 +250,15 @@ nav img {
 .homepage-game {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
 }
 .homepage-game img {
     width: 100%;
     height: 50%;
-    border-radius: 0.25em;
+    border-radius: 1em;
     object-fit: cover;
     object-position: 50% 50%;    
     border: 2px solid #1B2838;
@@ -342,6 +352,25 @@ releasedate {
 }
 /*#endregion*/
 
+/*#region ----- Profile Pictures */
+.profile-picture {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 256px;
+    height: 256px;
+    border-radius: 50%;
+    border: 2px solid #1B2838;
+    transition: all 0.25s ease-in-out;   
+}
+
+.profile-picture:hover {
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #67C1F5;
+}
+/*#endregion*/
+
 /*#region ----- Media Queries */
 @media screen and (max-width: 768px){
     .main-nav{
@@ -384,14 +413,15 @@ releasedate {
 
 reviewer {
     font-size: 20px;
-    color: #FFD966;
+    color: #67C1F5;
     margin: 0 auto;
 }
 
 position {
     font-size: 17px;
+    font-weight: bold;
     font-style: italic;
-    color: #FFD966;
+    color: #67C1F5;
 }
 /*#endregion*/
 

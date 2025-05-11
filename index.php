@@ -15,7 +15,8 @@
         <!-- MAIN CONTENT -->
         <div class="page-content-container"> 
             <div class="centered-text">
-                <p>Hi, Matt here. I've been making games using Unity for over a decade. 
+                <img class="profile-picture" src="res\images\me\me_circle_gradient.png" alt="you found me!">    
+                <p>Hi, Matt here. I've been making games using Unity for over 16 years. 
                 Check out my personal games <a href="personal-games.php">here</a>
                 and my professional work <a href="professional-games.php">here</a>.</p>
                 <br></br>
