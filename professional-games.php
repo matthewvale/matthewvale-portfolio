@@ -27,20 +27,7 @@
                             <a class="button-style-steam" href="https://store.steampowered.com/app/1243200/STUFFED/" target="_blank">STEAM</a>      
                         </div>
                     </div>
-                </div>                
-                <div class="game">
-                    <img src="res\images\professional\wwedomination.jpg" alt="WWE Domination">
-                    <div class="game-details-container">
-                        <div class="game-title">
-                            <gametitle>WWE Domination</gametitle>
-                            <releasedate>A game by Pixel Toys, partnered with Scopely Inc.</releasedate>
-                        </div>
-                        <p>An officially branded WWE team battle game. During my time at Pixel Toys I worked on various aspects of the meta game including the Rush game mode, I also created the character Synergy system, set up various UI scenes and helped with the PvE game mode. A lot of the game is data driven by the server and my work included calling endpoints and waiting for server responses to update the client.</p>
-                        <div class="game-store-links">
-                            <a class="button-style-android" href="https://play.google.com/store/apps/details?id=com.scopely.wwedomination" target="_blank">PLAY</a>
-                        </div>
-                    </div>
-                </div>
+                </div>                                
             </div>
         </div>
     </body>
