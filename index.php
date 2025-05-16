@@ -21,8 +21,8 @@
                 and my professional work <a href="professional-games.php">here</a>.</p>
                 <br></br>
                 <p>View my <a href="https://matthewvaleblog.wordpress.com/">Blog</a>, where I cover more technical aspects of my work.</p>
-                <p>View my <a href="https://github.com/MattVale1">GitHub</a>, which contains my own codebase for all my Unity projects.</p>
-                <p>View my <a href="https://miro.com/app/board/uXjVKO9t2B8=/?share_link_id=118558371974">Miro board</a>, where I planned my space game project.</p>
+                <p>View my <a href="https://github.com/matthewvale">GitHub</a>, which contains my own codebase for all my Unity projects.</p>
+                <p>View my <a href="https://miro.com/app/board/uXjVKO9t2B8=/?share_link_id=118558371974">Miro board</a>, where I am planning my next project.</p>
             </div>
 
             <div class="homepage-game-collection">
