@@ -88,6 +88,7 @@ body::-webkit-scrollbar {
     transition: all 0.25s ease-in-out;
 }
 .button-style-steam:hover {
+    cursor: pointer;
     background: linear-gradient(90deg, #b1d1e4, #2D73FF);
 }
 
@@ -104,6 +105,7 @@ body::-webkit-scrollbar {
     transition: all 0.25s ease-in-out;
 }
 .button-style-itch:hover {
+    cursor: pointer;
     background: #ff9997;
 }
 
@@ -124,6 +126,7 @@ body::-webkit-scrollbar {
     transition: all 0.25s ease-in-out;
 }
 .button-style-android:hover {
+    cursor: pointer;
     background:
         linear-gradient(0deg, rgba(255, 50, 50, 0.8), rgba(255, 0, 0, 0) 50%),
         linear-gradient(270deg, rgba(255, 255, 0, 0.8), rgba(0, 255, 0, 0) 60%),
@@ -227,7 +230,8 @@ nav img {
 
 .centered-text p a:any-link {
     font-size: 22px;
-    color: #67C1F5;
+    color: #ff5bff;
+    cursor: pointer;
 }
 /*#endregion*/
 
