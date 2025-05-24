@@ -16,8 +16,8 @@
         <div class="page-content-container">
             <div class="testimonial-grid">
                 <div class="testimonial-item">
-                    <p>"Working alongside Matthew was an absolute privilege. Their exceptional talent and knowledge at programming & game development greatly enhanced our video game projects and allowed us to build more high-quality products in a shorter space of time.”</p>
-                    <br></br>
+                    <p>"Working alongside Matthew was an absolute privilege. Their exceptional talent and knowledge in programming & game development greatly enhanced our video game projects and allowed us to build more high-quality products in a shorter space of time.”</p>                    
+                    <br>
                     <reviewer>Dan B.</reviewer>
                     <br>
                     <position>CTO @ Waving Bear Studios</position>

@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matthew Vale | Game Developer</title>
-    <meta name="description" content="Creating interactive experiences via the means of games."/>
+    <meta name="description" content="My official portfolio website."/>
     <link rel="icon" href="res\images\me\me_circle_gradient.png">
     <link rel="stylesheet" href="css/styles.css">    
 </head>

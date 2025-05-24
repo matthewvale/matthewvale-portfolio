@@ -16,7 +16,7 @@
         <div class="page-content-container">
             <div class="game-collection">
                 <div class="game">
-                    <img src="res\images\personal\polyskies.jpg" alt="Poly Skies">      
+                    <img src="res\images\personal\polyskies.png" alt="Poly Skies">      
                     <div class="game-details-container">
                         <div class="game-title">
                             <gametitle>Poly Skies</gametitle>
