@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html>
     <!-- HEAD -->
-    <?php include 'php/head.php'; ?>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Wire+One&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matthew Vale | Game Developer</title>
+        <meta name="description" content="My official portfolio website."/>
+        <link rel="icon" href="res\images\me\me_circle_gradient.png">
+        <link rel="stylesheet" href="css/styles.css">    
+    </head>
     <body>
         <!-- NAVIGATION BAR -->
-        <?php include 'php/navibar.php'; ?>
+        <header>    
+            <nav class="main-nav"> 
+            <div class="nav-main">   
+                <a class="button-style-1" href="index.html">HOME</a>        
+                <a class="button-style-1" href="personal-games.html">PERSONAL</a>
+                <a class="button-style-1" href="professional-games.html">PROFESSIONAL</a>
+                <a class="button-style-1" href="feedback.html">TESTIMONIALS</a>
+                <a class="button-style-1" href="who-am-i.html">ABOUT ME</a>        
+            </div>
+            <div class="nav-end">       
+                <a class="button-style-2" href="lets-talk.html">LET'S TALK</a>
+            </div>  
+            </nav>
+        </header>
+
         <div class="box-promo">
         <img src="res\images\promos\promo_banner.jpg">
             <div class="box-promo-textarea">
@@ -12,6 +38,7 @@
                 <h2>Where have I been and where am I going?</h2>
             </div>
         </div>
+
         <!-- MAIN CONTENT -->
         <div class="page-content-container">
             <div class="centered-text">
@@ -25,6 +52,14 @@
             </div>            
         </div>
     </body>
+
     <!-- FOOTER -->
-    <?php include 'php/footer.php'; ?>
+     <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Website last updated:</h3>
+                <i>May 2025</i>
+            </div>
+        </div>
+    </footer>
 </html>
