@@ -1,3 +1,22 @@
+:root {
+    /* Reds */
+    --red-1: #E7442A;
+    --red-2: #992D1C;
+    /* Grays */
+    --gray-1: #6D748C;
+    --gray-2: #2F3749;
+    --gray-3: #111419;
+    /* Blues */
+    --blue-1: #2BA5E2;
+    --blue-2: #0E1E31;
+    --blue-3: #111419;
+    --blue-3a: #1114196b;
+    /* Pinks */
+    --pink-1: #ff60ff;
+    --pink-2: #FF33FF;
+    --pink-3: #990099;
+}
+
 /*#region ----- Global Body Properties */
 /* FONTS :: Inter, Poppins, Roboto */
 *{
@@ -25,7 +44,7 @@ h2 {
 }
 
 h1 {
-    font-size: 68px;
+    font-size: 42px;
     text-shadow: #1B2838 0 2px 4px;
 }
 
@@ -39,7 +58,7 @@ accent-yellow {
 
 html, body {    
     background: #00B2B2;
-    background: linear-gradient(130deg,rgba(0, 78, 78, 1) 0%, rgba(104, 0, 104, 1) 130%);
+    background: linear-gradient(130deg, var(--blue-2) 0%, var(--gray-2) 130%);
     margin: 0;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -54,31 +73,31 @@ body::-webkit-scrollbar {
 /*#region ----- Global Button Properties */
 .button-style-1 {
     display: inline-block;
-    border-radius: 0.25em;
+    border-radius: 0.15em;
     line-height: 36px;
-    margin: 2px;
-    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.5));
+    /* margin: 2px; */
+    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.5));
     transition: all 0.25s ease-in-out;
 }
 .button-style-1:hover {
-    background-color: #67C1F5;
+    background-color: var(--blue-2);
     cursor: pointer;
 }
 .button-style-2 {
     display: inline-block;
-    border-radius: 0.25em;
+    border-radius: 0.15em;
     line-height: 36px;
-    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.5));
-    transition: all 0.5s ease-in-out;
+    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.5));
+    transition: all 0.25s ease-in-out;
 }
 .button-style-2:hover {
-    background-color: #67C1F5;
+    background-color: var(--blue-2);
     cursor: pointer;
 }
 .button-style-steam {
     display: inline-block;
     background: linear-gradient(90deg, #67C1F5, #2D73FF);
-    border-radius: 0.25em;
+    border-radius: 0.15em;
     line-height: 46px;
     width: 128px;
     text-align: center;
@@ -147,10 +166,10 @@ header {
     max-height: 50px;
     z-index: 80;
     background: #1B2838;
-    background: linear-gradient(90deg, #1B2838 50%, #2996CC 100%);
-    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.6));
-    border-bottom: 2px solid #67C1F5;
-    padding: 10px 20px;
+    background: linear-gradient(90deg, var(--pink-1) 0%, var(--blue-1) 100%);
+    border-bottom: 3px solid var(--blue-3a);
+    filter: drop-shadow(0px 4px 1px rgba(0,0,0,0.2));    
+    padding: 0px 0px;
 }
 
 header > .logo{
@@ -160,7 +179,7 @@ header > .logo{
 .main-nav {
   display: flex;
   align-items: center;  
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   max-width: 1080px;
 }
@@ -183,7 +202,7 @@ nav img {
     text-align: center;
     width: 100%;
     padding-top:50px;
-    height: 350px;
+    height: 400px;
     margin-bottom: 0px;
 }
 .box-promo img {
@@ -192,8 +211,7 @@ nav img {
     height: 100%;
     object-fit: cover;
     object-position: 50% 50%;
-    opacity: 50%;
-    mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 0%, transparent 100%);
 }
 .box-promo-textarea {
     display: flex;
@@ -217,7 +235,7 @@ nav img {
     max-width: 1080px;
     margin: 0 auto;
     gap: 28px;
-    padding: 24px 32px 24px 32px;
+    padding: 0px 32px 24px 32px;
 }
 .centered-text {
     width: inherit;
@@ -230,7 +248,7 @@ nav img {
 
 .centered-text p a:any-link {
     font-size: 22px;
-    color: #ff5bff;
+    color: var(--pink-1);
     cursor: pointer;
 }
 /*#endregion*/
@@ -279,8 +297,14 @@ nav img {
     min-height: 256px;
     object-fit:cover;
     object-position: 50% 50%;    
-    border: 2px solid white;
-    filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
+    border: 2px solid var(--gray-1);
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
+    transition: all 0.1s ease-in-out;
+}
+.homepage-game img:hover {
+    border: 2px solid var(--blue-1);
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
 }
 /*#endregion*/
 
@@ -330,7 +354,7 @@ nav img {
     max-height: 300px;
     object-fit: cover;
     object-position: 50% 50%;
-    border: 2px solid white;
+    border: 2px solid var(--gray-1);
     filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
 }
 .game-details-container {
@@ -352,11 +376,11 @@ nav img {
     justify-content: space-between;
 }
 gametitle {
-    color: #67C1F5;
+    color: var(--blue-1);    
     font-size: 36px;
 }
 releasedate {
-    color: #2996CC;
+    color: var(--pink-1);
     font-size: 18px;
 }
 .game-store-links {
@@ -374,15 +398,15 @@ releasedate {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 2px solid #1B2838;
-    transition: all 0.25s ease-in-out;   
+    border: 6px solid var(--gray-2);
+    /* transition: all 0.25s ease-in-out;    */
 }
 
-.profile-picture:hover {
+/* .profile-picture:hover {
     cursor: pointer;
     border-radius: 50%;
     border: 2px solid #67C1F5;
-}
+} */
 /*#endregion*/
 
 /*#region ----- Media Queries */
@@ -409,24 +433,25 @@ releasedate {
 }
 
 .testimonial-item {
-    background: radial-gradient(ellipse at 33% 100%, #67C1F550, #1B2838);
-    border-radius: 0.5em;
+    background: var(--gray-2);
+    /* background: radial-gradient(ellipse at 0% 100%, var(--gray-2), var(--gray-3)); */
+    /* border-radius: 0.25em; */
     width: 45%;
     padding: 15px;
-    border: 2px solid #2996CC;
-    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.7));
+    border: 2px solid var(--gray-1);
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
     box-sizing: border-box;
-    transition: all 0.25s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 
 .testimonial-item:hover {
     box-sizing: border-box;
-    border: 2px solid #67C1F5;
+    border: 2px solid var(--blue-1);
 }
 
 reviewer {
     font-size: 20px;
-    color: #67C1F5;
+    color: var(--blue-1);
     margin: 0 auto;
 }
 
@@ -434,7 +459,7 @@ position {
     font-size: 17px;
     font-weight: bold;
     font-style: italic;
-    color: #67C1F5;
+    color: var(--blue-1);
 }
 /*#endregion*/
 
@@ -446,8 +471,8 @@ position {
     justify-content: center;
     margin-top: 64px;
     max-width: 100%;
-    background-color:#1B2838;
-    border-top: 2px solid #67C1F5;
+    background-color:var(--blue-3);
+    border-top: 3px solid var(--blue-1);
     box-shadow: 0 50vh 0 50vh #1B2838;
 }
 
@@ -459,7 +484,7 @@ position {
 }
 
 .footer-section h3 {
-    color: #67C1F5;
+    color: var(--blue-1);
 }
 
 .footer-section i {
