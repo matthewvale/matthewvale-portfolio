@@ -398,7 +398,7 @@ releasedate {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 6px solid var(--gray-2);
+    border: 2px solid var(--blue-1);
     /* transition: all 0.25s ease-in-out;    */
 }
 
