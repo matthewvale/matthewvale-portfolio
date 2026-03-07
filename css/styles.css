@@ -410,15 +410,73 @@ releasedate {
 /*#endregion*/
 
 /*#region ----- Media Queries */
-@media screen and (max-width: 768px){
-    .main-nav{
-        display: none;
-    }
+/* Mobile burger/button */
+.mobile-burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 16px;
+    top: 6px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 90;
+}
+
+/* hamburger lines */
+.mobile-burger .bar {
+    width: 24px;
+    height: 2px;
+    background: white;
+    margin: 3px 0;
+    transition: all .25s ease;
+}
+
+/* Burger open -> X animation */
+.mobile-burger.open .bar:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+}
+.mobile-burger.open .bar:nth-child(2) {
+    opacity: 0;
+}
+.mobile-burger.open .bar:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+/* Mobile menu dropdown */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    right: 16px;
+    top: 56px;
+    background: #1B2838;
+    border: 1px solid var(--blue-3a);
+    border-radius: 6px;
+    padding: 8px;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 85;
+    min-width: 180px;
+}
+
+.mobile-menu a {
+    padding: 8px 12px;
+    display: block;
+    color: white;
+}
+
+/* Open state */
+.mobile-menu.open { display: flex; }
+
+/* Breakpoints: use exclusive ranges to avoid both hiding at same width */
+@media screen and (max-width: 767.98px){
+        .main-nav{ display: none; }
+        header { justify-content: flex-start; padding-left: 12px; }
 }
 @media screen and (min-width: 768px){
-    .mobile-burger{
-        display: none;
-    }
+        .mobile-burger{ display: none; }
+        .mobile-menu{ display: none; }
 }
 /*#endregion*/
 
