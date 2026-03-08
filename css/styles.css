@@ -201,7 +201,6 @@ nav img {
     position: relative;
     text-align: center;
     width: 100%;
-    padding-top:50px;
     height: 400px;
     margin-bottom: 0px;
 }
@@ -470,7 +469,7 @@ releasedate {
 .mobile-menu.open { display: flex; }
 
 /* Breakpoints: use exclusive ranges to avoid both hiding at same width */
-@media screen and (max-width: 767.98px){
+@media screen and (max-width: 900px){
         .main-nav{ display: none; }
         header { justify-content: flex-start; padding-left: 12px; }
 
@@ -503,7 +502,7 @@ releasedate {
             gap: 20px;
         }
 }
-@media screen and (min-width: 768px){
+@media screen and (min-width: 900px){
         .mobile-burger{ display: none; }
         .mobile-menu{ display: none; }
 }
