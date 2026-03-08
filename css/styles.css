@@ -473,6 +473,35 @@ releasedate {
 @media screen and (max-width: 767.98px){
         .main-nav{ display: none; }
         header { justify-content: flex-start; padding-left: 12px; }
+
+        /* Make game items stack vertically on small screens */
+        .game, .homepage-game {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            height: auto;
+        }
+
+        /* Ensure images resize and don't force horizontal scroll */
+        .game img, .homepage-game img {
+            min-width: 0;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+        }
+
+        .game-details-container {
+            margin-left: 0;
+            width: 100%;
+            padding: 0 4px;
+        }
+
+        /* Homepage specific adjustments */
+        .homepage-game-collection {
+            flex-direction: column;
+            height: auto;
+            gap: 20px;
+        }
 }
 @media screen and (min-width: 768px){
         .mobile-burger{ display: none; }
