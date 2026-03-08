@@ -1,81 +1,110 @@
-// Loads header.html into the page and then loads menu.js
-(async function(){
+// Simple header include: fetch header.html (or use a small static fallback for file://),
+// extract <header>, .mobile-burger and .mobile-menu, insert them into the host document,
+// then load `js/menu.js` once.
+(async function () {
   const placeholder = document.getElementById('site-header');
+  if (!placeholder) return;
 
-  // Helper to create an iframe that auto-resizes to its content so dropdowns are visible
-  function makeHeaderIframe(src) {
-    const iframe = document.createElement('iframe');
-    iframe.src = src;
-    iframe.title = 'site header';
-    iframe.style.width = '100%';
-    iframe.style.border = '0';
-    iframe.style.display = 'block';
-    iframe.style.overflow = 'visible';
-    iframe.loading = 'eager';
-    iframe.style.minHeight = '50px';
+  const staticFallback = `
+    <header>
+      <nav class="main-nav">
+        <div class="nav-main">
+          <a class="button-style-1" href="index.html">HOME</a>
+          <a class="button-style-1" href="personal-games.html">PERSONAL</a>
+          <a class="button-style-1" href="professional-games.html">PROFESSIONAL</a>
+          <a class="button-style-1" href="feedback.html">TESTIMONIALS</a>
+          <a class="button-style-1" href="who-am-i.html">ABOUT ME</a>
+        </div>
+        <div class="nav-end">
+          <a class="button-style-2" href="lets-talk.html">LET'S TALK</a>
+        </div>
+      </nav>
+    </header>
+    <div class="mobile-burger" role="button" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </div>
+    <nav class="mobile-menu" aria-hidden="true">
+      <a href="index.html">Home</a>
+      <a href="personal-games.html">Personal</a>
+      <a href="professional-games.html">Professional</a>
+      <a href="feedback.html">Testimonials</a>
+      <a href="who-am-i.html">About</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
+  `;
 
-    iframe.addEventListener('load', () => {
-      try {
-        const doc = iframe.contentDocument || iframe.contentWindow.document;
-        iframe.style.height = '50px';
-        resize();
-        // const resize = () => {
-        //   const h = Math.max(doc.documentElement.scrollHeight || 0, doc.body.scrollHeight || 0, 64);
-        //   iframe.style.height = h + 'px';
-        // };
-        // resize();
-        const mo = new MutationObserver(resize);
-        mo.observe(doc.documentElement, { childList: true, subtree: true, attributes: true, characterData: true });
-      } catch (err) {
-        iframe.style.height = '50px';
-      }
-    });
+  function insertHeader(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const headerEl = doc.querySelector('header');
+    const burgerEl = headerEl && headerEl.querySelector('.mobile-burger');
+    const menuEl = headerEl && headerEl.querySelector('.mobile-menu');
 
-    return iframe;
+    // remove burger/menu from header fragment so we can insert them after the placeholder
+    if (burgerEl) burgerEl.remove();
+    if (menuEl) menuEl.remove();
+
+    // insert header (or fallback raw html if no header element found)
+    placeholder.innerHTML = headerEl ? headerEl.outerHTML : html;
+
+    // append burger/menu after placeholder so they live in the top document
+    if (burgerEl) placeholder.insertAdjacentElement('afterend', burgerEl);
+    if (menuEl) placeholder.insertAdjacentElement('afterend', menuEl);
+
+    // If header fragment didn't include a burger/menu (or they were removed),
+    // create simple defaults so the mobile experience still works.
+    function createDefaultBurgerAndMenu() {
+      const b = document.createElement('div');
+      b.className = 'mobile-burger';
+      b.setAttribute('role','button');
+      b.setAttribute('aria-label','Open menu');
+      b.setAttribute('aria-expanded','false');
+      b.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
+
+      const m = document.createElement('nav');
+      m.className = 'mobile-menu';
+      m.setAttribute('aria-hidden','true');
+      m.innerHTML = `
+        <a href="index.html">Home</a>
+        <a href="personal-games.html">Personal</a>
+        <a href="professional-games.html">Professional</a>
+        <a href="feedback.html">Testimonials</a>
+        <a href="who-am-i.html">About</a>
+        <a href="lets-talk.html">Let's Talk</a>
+      `;
+      return {b,m};
+    }
+
+    if (!document.querySelector('.mobile-burger') || !document.querySelector('.mobile-menu')) {
+      const {b,m} = createDefaultBurgerAndMenu();
+      // ensure we don't duplicate if one of them already exists
+      if (!document.querySelector('.mobile-burger')) placeholder.insertAdjacentElement('afterend', b);
+      if (!document.querySelector('.mobile-menu')) placeholder.insertAdjacentElement('afterend', m);
+    }
+
+    // ensure menu script is loaded once
+    if (!document.querySelector('script[data-included="menu"]')) {
+      const s = document.createElement('script');
+      s.src = 'js/menu.js';
+      s.setAttribute('data-included', 'menu');
+      document.body.appendChild(s);
+    }
   }
 
-  // If running from the local filesystem, avoid fetch (often blocked) and use an iframe fallback.
-  if (window.location && window.location.protocol === 'file:') {
-    if (placeholder) {
-      const iframe = makeHeaderIframe('header.html');
-      placeholder.appendChild(iframe);
-    }
+  if (location.protocol === 'file:') {
+    insertHeader(staticFallback);
     return;
   }
 
   try {
-    const resp = await fetch('header.html');
-    if (!resp.ok) {
-      if (placeholder) {
-        const iframe = makeHeaderIframe('header.html');
-        placeholder.appendChild(iframe);
-      }
-      return;
+    const r = await fetch('header.html');
+    if (r.ok) {
+      const text = await r.text();
+      insertHeader(text);
+    } else {
+      insertHeader(staticFallback);
     }
-    const text = await resp.text();
-    // If header.html contains a full document, parse and extract the header element.
-    let headerContent = text;
-    try {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(text, 'text/html');
-      const el = doc.querySelector('header');
-      if (el) headerContent = el.outerHTML;
-    } catch (pe) {
-      // parsing failed, fall back to raw text
-    }
-
-    if (placeholder) {
-      placeholder.innerHTML = headerContent;
-      // load menu script after header inserted
-      const s = document.createElement('script');
-      s.src = 'js/menu.js';
-      document.body.appendChild(s);
-    }
-  } catch (e) {
-    // fallback to iframe if fetch or parsing fails
-    if (placeholder) {
-      const iframe = makeHeaderIframe('header.html');
-      placeholder.appendChild(iframe);
-    }
+  } catch (err) {
+    insertHeader(staticFallback);
   }
 })();
