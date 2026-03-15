@@ -19,8 +19,9 @@
         <div id="site-header"></div>
 
         <div class="box-promo">
-            <img src="res\images\personal\spacenomads_galaxy_banner.png">
+            <img class="box-promo-banner" src="res\images\personal\spacenomads_galaxy_banner.png" alt="Space Nomads banner">
             <div class="box-promo-textarea">
+                <img class="profile-picture" src="res\images\me\me_circle_512.png" alt="you found me!">    
                 <h1>Matthew Vale</h1>
                 <h2>Game Developer</h2>
             </div>
@@ -29,7 +30,6 @@
         <!-- MAIN CONTENT -->
         <div class="page-content-container"> 
             <div class="centered-text">
-                <img class="profile-picture" src="res\images\me\me_circle_512.png" alt="you found me!">    
                 <p>Hi, Matt here. I've been making games using Unity for over 16 years. 
                 Check out my personal games <a href="personal-games.html">here</a>
                 and my professional work <a href="professional-games.html">here</a>.</p>
@@ -38,31 +38,72 @@
                     <img src="res\images\branding\unity_logo.png" alt="Unity Engine">
                     <img src="res\images\branding\csharp_logo.png" alt="C#">
                     <img src="res\images\branding\visual_studio_community_logo.png" alt="Visual Studio Community">
-                    <!-- <img src="res\images\branding\visual_studio_code_logo.png" alt="Visual Studio Code"> -->
                     <img src="res\images\branding\github-mark-white.png" alt="Git">
                     <img src="res\images\branding\blender_logo.png" alt="Blender">
                     <img src="res\images\branding\inkscape_logo.png" alt="Inkscape">
                     <img src="res\images\branding\miro_logo.png" alt="Miro">
                 </div>
-                <p>View my <a href="https://matthewvaleblog.wordpress.com/">Blog</a>, where I post about my work and thoughts.</p>
-                <p>View my <a href="https://github.com/matthewvale">GitHub</a>, which speaks for itself.</p>
-                <p>View my <a href="https://miro.com/app/board/uXjVKO9t2B8=/?share_link_id=118558371974">Miro board</a>, where I handle my current project.</p>
+                <div class="viewmy-button-row">
+                    <a class="button-style-viewmy" href="https://matthewvaleblog.wordpress.com/" target="_blank">
+                        <span class="button-style-viewmy-content">
+                            <img class="button-style-viewmy-icon-image" src="res\images\branding\wordpress.png" alt="">
+                            <span>BLOG</span>
+                        </span>
+                    </a>
+                    <a class="button-style-viewmy" href="https://github.com/matthewvale" target="_blank">
+                        <span class="button-style-viewmy-content">
+                            <img class="button-style-viewmy-icon-image" src="res\images\branding\github-mark-white.png" alt="">
+                            <span>GITHUB</span>
+                        </span>
+                    </a>
+                    <a class="button-style-viewmy" href="https://miro.com/app/board/uXjVKO9t2B8=/?share_link_id=118558371974" target="_blank">
+                        <span class="button-style-viewmy-content">
+                            <img class="button-style-viewmy-icon-image" src="res\images\branding\miro_logo.png" alt="">
+                            <span>MIRO</span>
+                        </span>
+                    </a>
+                </div>
             </div>            
             <div class="homepage-game-collection">
-                <!-- <div class="homepage-game-promo">
-                    <img src="res\images\promos\polyskies_promo.jpg" alt="Poly Skies">
-                </div> -->
                 <div class="homepage-game">
-                    <img src="res\images\personal\spacenomads_01.png" alt="Space Nomads">
-                    <img src="res\images\personal\laservasion.jpg" alt="Laservasion">                                 
+                    <div class="homepage-game-card">
+                        <img src="res\images\personal\spacenomads_01.png" alt="Space Nomads">
+                        <div class="homepage-game-card-info">
+                            <h2>Space Nomads</h2>
+                            <p>A crew management RPG. Explore star systems, hire crew, build your ship and establish colonies.</p>
+                            <a class="button-style-steam" href="https://matthewvaleblog.wordpress.com/current-project/" target="_blank">LEARN MORE</a>
+                        </div>
+                    </div>
+                    <div class="homepage-game-card">
+                        <img src="res\images\personal\laservasion.jpg" alt="Laservasion">
+                        <div class="homepage-game-card-info">
+                            <h2>Laservasion</h2>
+                            <p>A retro arcade shoot 'em up with addictive combat propelled by the music.</p>
+                            <a class="button-style-steam" href="https://store.steampowered.com/app/1133310/" target="_blank">STEAM</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="homepage-game">
-                    <img src="res\images\personal\polyskies.png" alt="Poly Skies">                           
-                    <img src="res\images\personal\anwk.jpg" alt="A New World: Kingdoms">    
+                    <div class="homepage-game-card">
+                        <img src="res\images\personal\polyskies.png" alt="Poly Skies">
+                        <div class="homepage-game-card-info">
+                            <h2>Poly Skies</h2>
+                            <p>A relaxing introductory city builder. Take care of your villagers and expand to new islands.</p>
+                            <a class="button-style-steam" href="https://store.steampowered.com/app/1952340?utm_source=portfolio&utm_medium=web" target="_blank">STEAM</a>
+                        </div>
+                    </div>
+                    <div class="homepage-game-card">
+                        <img src="res\images\personal\anwk.jpg" alt="A New World: Kingdoms">
+                        <div class="homepage-game-card-info">
+                            <h2>A New World: Kingdoms</h2>
+                            <p>A turn-based strategic 4X game. Expand your kingdom, manage resources and outsmart your rival.</p>
+                            <a class="button-style-steam" href="https://store.steampowered.com/app/628650/" target="_blank">STEAM</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="skills-container">
-                <div class="testimonial-item">
+                <div class="skill-item">
                     <div class="skill-title">
                         <h3>LANGUAGES</h3>
                     </div>
@@ -73,7 +114,7 @@
                         <p>HTML + CSS</p>
                     </div>  
                 </div>
-                <div class="testimonial-item">
+                <div class="skill-item">
                     <div class="skill-title">
                         <h3>SOFTWARE</h3>
                     </div>
@@ -84,7 +125,7 @@
                         <p>Inkscape</p>
                     </div>  
                 </div>
-                <div class="testimonial-item">
+                <div class="skill-item">
                     <div class="skill-title">
                         <h3>TECHNICAL SKILLS</h3>
                     </div>
@@ -95,7 +136,7 @@
                         <p>UI and UX flows</p>
                     </div>   
                 </div>
-                <div class="testimonial-item">
+                <div class="skill-item">
                     <div class="skill-title">
                         <h3>PLANNING TOOLS</h3>
                     </div>
