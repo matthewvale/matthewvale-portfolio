@@ -132,7 +132,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin: 40px 0;
+    margin: 40px 0 4px;
 }
 
 .button-style-viewmy {
@@ -274,7 +274,7 @@ nav img {
     width: 100%;
     max-width: 1080px;
     margin: 64px auto;
-    gap: 28px;
+    gap: 24px;
     padding: 0 32px 24px 32px;
 }
 
@@ -287,6 +287,11 @@ nav img {
     font-size: 22px;
     margin: 16px;
     text-align: center;
+}
+
+.centered-text h2 {
+    text-align: center;
+    margin: 6px 0;
 }
 
 .centered-text p a:any-link {
@@ -400,6 +405,17 @@ nav img {
     color: #cccccc;
     padding-bottom: 8px;
 }
+
+.homepage-game-card-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.homepage-game-card-actions .button-style-steam {
+    margin-right: 0;
+}
 /*#endregion*/
 
 /*#region ----- Homepage Skills grid */
@@ -503,6 +519,30 @@ releasedate {
     display: flex;
     flex-direction: row;
     margin-top: 20px;
+}
+
+.homepage-spotlight {
+    margin: 8px 0 20px;
+}
+
+.homepage-spotlight img {
+    min-width: 520px;
+    max-width: 520px;
+    height: 320px;
+}
+
+.homepage-spotlight .game-details-container {
+    gap: 14px;
+    margin-left: 28px;
+}
+
+.homepage-spotlight .game-store-links {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.homepage-spotlight .game-store-links .button-style-steam {
+    margin-right: 0;
 }
 /*#endregion*/
 
