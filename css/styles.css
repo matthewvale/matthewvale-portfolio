@@ -544,6 +544,79 @@ releasedate {
 .homepage-spotlight .game-store-links .button-style-steam {
     margin-right: 0;
 }
+
+/* ----- Featured project glitch border (option 4: gradient sweep) -----
+   Tune the whole effect with --glitch-intensity:
+   0 = off, 1 = subtle shimmer, 2 = noticeable, 3 = chaotic. */
+@property --spotlight-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.homepage-spotlight {
+    --glitch-intensity: 3;
+    --glitch-offset: calc(var(--glitch-intensity) * 3px);
+    --glitch-border-width: 6px;
+    --glitch-speed: 0.5s;
+    --sweep-speed: 3s;
+}
+
+.spotlight-frame {
+    position: relative;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+/* The image's own static gradient border is replaced by the
+   animated ring below; the transparent border keeps its size. */
+.homepage-spotlight .spotlight-frame img {
+    border-image: none;
+    border-color: transparent;
+}
+
+/* Rotating pink/blue ring, masked to just the border area. */
+.spotlight-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    padding: var(--glitch-border-width);
+    background: conic-gradient(
+        from var(--spotlight-angle),
+        var(--pink-1),
+        var(--blue-1),
+        var(--pink-1)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    animation:
+        spotlight-sweep var(--sweep-speed) linear infinite,
+        spotlight-stutter var(--glitch-speed) steps(1, end) infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes spotlight-sweep {
+    to { --spotlight-angle: 360deg; }
+}
+
+/* Brief displaced//dimmed frames punched into the smooth sweep. */
+@keyframes spotlight-stutter {
+    0%, 45%   { transform: translate(0, 0); opacity: 1; }
+    47%       { transform: translate(var(--glitch-offset), calc(var(--glitch-offset) * -0.5)); opacity: 0.45; }
+    49%       { transform: translate(calc(var(--glitch-offset) * -1), 0); opacity: 1; }
+    51%, 79%  { transform: translate(0, 0); opacity: 1; }
+    81%       { transform: translate(calc(var(--glitch-offset) * -0.6), var(--glitch-offset)); opacity: 0.55; }
+    84%, 100% { transform: translate(0, 0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spotlight-frame::before {
+        animation: none;
+    }
+}
 /*#endregion*/
 
 /*#region ----- Profile Picture */
@@ -642,6 +715,18 @@ releasedate {
         width: 100%;
         height: auto;
         margin: 0 auto;
+    }
+
+    .spotlight-frame {
+        width: 100%;
+        align-self: stretch;
+    }
+
+    .homepage-spotlight .spotlight-frame img {
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
     }
 
     .game-details-container {
