@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <!-- HEAD -->
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,14 @@
         <title>Matthew Vale | Game Developer</title>
         <meta name="description" content="My official portfolio website."/>
         <link rel="icon" href="res\images\me\me_circle_512.png">
-        <link rel="stylesheet" href="css/styles.css">    
+        <link rel="stylesheet" href="css/styles.css">
+        <!-- Open Graph / social previews -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Matthew Vale | Game Developer">
+        <meta property="og:description" content="Game developer with almost 2 decades in Unity.">
+        <meta property="og:url" content="https://matthewvale.github.io/matthewvale-portfolio/">
+        <meta property="og:image" content="https://matthewvale.github.io/matthewvale-portfolio/res/images/personal/spacenomads_galaxy_banner.png">
+        <meta name="twitter:card" content="summary_large_image">
     </head>  
     <body>
         <!-- NAVIGATION BAR (loaded from header.html) -->
@@ -24,13 +31,14 @@
                 <img class="profile-picture" src="res\images\me\me_circle_512.png" alt="you found me!">    
                 <h1>Matthew Vale</h1>
                 <h2>Game Developer</h2>
+                <a class="button-style-steam hero-contact" href="lets-talk.html">CONTACT</a>
             </div>
         </div>
 
         <!-- MAIN CONTENT -->
         <div class="page-content-container"> 
             <div class="centered-text">
-                <p>Hi, Matt here. I've been making games using Unity for over 16 years. 
+                <p>Hi, Matt here. I've been making games using Unity for almost 2 decades. 
                 Check out my personal games <a href="personal-games.html">here</a>
                 and my professional work <a href="professional-games.html">here</a>.</p>
                 <p>My every day tech stack:</p>
@@ -65,18 +73,20 @@
                 </div>
             </div>            
 
-            <div class="centered-text">
-                <h2>Featured Project</h2>
+            <div class="centered-text section-start">
+                <h2 class="glitch-heading" data-text="Featured Project">Featured Project</h2>
             </div>
 
             <div class="homepage-spotlight game">
-                <img src="res\images\personal\spacenomads_01.png" alt="Space Nomads featured screenshot">
+                <div class="spotlight-frame">
+                    <img src="res\images\personal\spacenomads_01.png" alt="Space Nomads featured screenshot">
+                </div>
                 <div class="game-details-container">
                     <div class="game-title">
                         <gametitle>Space Nomads</gametitle>
                         <releasedate>In development...</releasedate>
                     </div>
-                    <p>A crew management RPG. Explore star systems, hire crew, build your ship and establish colonies.</p>
+                    <p>A space RPG, explore systems, hire crew, build your ship and uncover mysteries.</p>
                     <div class="game-store-links">
                         <a class="button-style-steam" href="https://matthewvaleblog.wordpress.com/current-project/" target="_blank">LEARN MORE</a>
                         <a class="button-style-steam" href="https://store.steampowered.com/app/4775700/Space_Nomads/" target="_blank">STEAM</a>
@@ -84,30 +94,30 @@
                 </div>
             </div>
 
-            <div class="centered-text">
+            <div class="centered-text section-start">
                 <h2>Recent Projects</h2>
             </div>
 
             <div class="homepage-game-collection">
                 <div class="homepage-game">
                     <div class="homepage-game-card">
-                        <img src="res\images\personal\spacenomads_01.png" alt="Space Nomads">
+                        <span class="card-badge card-badge--personal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7 7h10a5 5 0 0 1 4.9 6l-.8 4a2.5 2.5 0 0 1-4.3 1.2L14.6 16H9.4l-2.2 2.2A2.5 2.5 0 0 1 2.9 17l-.8-4A5 5 0 0 1 7 7zm0 3v1.5H5.5V13H7v1.5h1.5V13H10v-1.5H8.5V10H7zm8.5 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm2.5-1.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span>PERSONAL</span></span>
+                        <img style="--img-y: 50%" src="res\images\personal\polyskies.png" alt="Poly Skies">
                         <div class="homepage-game-card-info">
-                            <h2>Space Nomads</h2>
-                            <p>A crew management RPG. Explore star systems, hire crew, build your ship and establish colonies.</p>
+                            <h2>Poly Skies</h2>
+                            <p>A relaxing, introductory city builder. Take care of your villagers and expand to new islands.</p>
                             <div class="homepage-game-card-actions">
-                                <a class="button-style-steam" href="https://matthewvaleblog.wordpress.com/current-project/" target="_blank">LEARN MORE</a>
-                                <a class="button-style-steam" href="https://store.steampowered.com/app/4775700/Space_Nomads/" target="_blank">STEAM</a>
+                                <a class="button-style-steam" href="https://store.steampowered.com/app/1952340?utm_source=portfolio&utm_medium=web" target="_blank">STEAM</a>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-game-card">
-                        <img src="res\images\personal\laservasion.jpg" alt="Laservasion">
+                        <span class="card-badge card-badge--personal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7 7h10a5 5 0 0 1 4.9 6l-.8 4a2.5 2.5 0 0 1-4.3 1.2L14.6 16H9.4l-2.2 2.2A2.5 2.5 0 0 1 2.9 17l-.8-4A5 5 0 0 1 7 7zm0 3v1.5H5.5V13H7v1.5h1.5V13H10v-1.5H8.5V10H7zm8.5 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm2.5-1.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span>PERSONAL</span></span>
+                        <img style="--img-y: 50%" src="res\images\personal\laservasion.jpg" alt="Laservasion">
                         <div class="homepage-game-card-info">
                             <h2>Laservasion</h2>
                             <p>A retro arcade shoot 'em up with addictive combat propelled by the music.</p>
                             <div class="homepage-game-card-actions">
-                                <a class="button-style-steam" href="personal-games.html" target="_blank">LEARN MORE</a>
                                 <a class="button-style-steam" href="https://store.steampowered.com/app/1133310/" target="_blank">STEAM</a>
                             </div>
                         </div>
@@ -115,29 +125,33 @@
                 </div>
                 <div class="homepage-game">
                     <div class="homepage-game-card">
-                        <img src="res\images\personal\polyskies.png" alt="Poly Skies">
+                        <span class="card-badge card-badge--professional"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 3h6a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3V5a2 2 0 0 1 2-2zm0 4h6V5H9v2z"/></svg><span>PROFESSIONAL</span></span>
+                        <img style="--img-y: 50%" src="res\images\professional\stuffed.jpg" alt="STUFFED">
                         <div class="homepage-game-card-info">
-                            <h2>Poly Skies</h2>
-                            <p>A relaxing introductory city builder. Take care of your villagers and expand to new islands.</p>
+                            <h2>STUFFED</h2>
+                            <p>A multiplayer FPS. I worked on realtime multiplayer features and optimized for Xbox submission.</p>
                             <div class="homepage-game-card-actions">
-                                <a class="button-style-steam" href="personal-games.html" target="_blank">LEARN MORE</a>
-                                <a class="button-style-steam" href="https://store.steampowered.com/app/1952340?utm_source=portfolio&utm_medium=web" target="_blank">STEAM</a>
+                                <a class="button-style-steam" href="https://store.steampowered.com/app/1243200/STUFFED/" target="_blank">STEAM</a>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-game-card">
+                        <span class="card-badge card-badge--personal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7 7h10a5 5 0 0 1 4.9 6l-.8 4a2.5 2.5 0 0 1-4.3 1.2L14.6 16H9.4l-2.2 2.2A2.5 2.5 0 0 1 2.9 17l-.8-4A5 5 0 0 1 7 7zm0 3v1.5H5.5V13H7v1.5h1.5V13H10v-1.5H8.5V10H7zm8.5 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm2.5-1.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span>PERSONAL</span></span>
                         <img src="res\images\personal\anwk.jpg" alt="A New World: Kingdoms">
                         <div class="homepage-game-card-info">
                             <h2>A New World: Kingdoms</h2>
                             <p>A turn-based strategic 4X game. Expand your kingdom, manage resources and outsmart your rival.</p>
                             <div class="homepage-game-card-actions">
-                                <a class="button-style-steam" href="personal-games.html" target="_blank">LEARN MORE</a>
                                 <a class="button-style-steam" href="https://store.steampowered.com/app/628650/" target="_blank">STEAM</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="centered-text section-start">
+                <h2>Skillset</h2>
+            </div>
+
             <div class="skills-container">
                 <div class="skill-item">
                     <div class="skill-title">

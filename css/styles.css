@@ -7,10 +7,19 @@
     --blue-0: #1c72be;
     --blue-1: #2BA5E2;
     --blue-2: #0E1E31;
-    --blue-3: #111419;
-    --blue-3a: #1114196b;
+    --blue-3: #1114196b;
+    --blue-4: #1B2838;
     /* Pinks */
     --pink-1: #ff60ff;
+
+    /* Glitch tunables, used by the featured heading. The featured border
+       overrides these on .homepage-spotlight so each can be tuned alone.
+       --glitch-intensity: 0 = off, 1 = subtle, 3 = chaotic. */
+    --glitch-intensity: 2;
+    --glitch-offset: calc(var(--glitch-intensity) * 3px);
+    --glitch-border-width: 3px;
+    --glitch-speed: 2s;
+    --sweep-speed: 3s;
 }
 
 /*#region ----- Global Body Properties */
@@ -30,8 +39,9 @@ i {
     font-style: italic;
 }
 
-h3 {
-    font-size: 18px;
+h1 {
+    font-size: 32px;
+    text-shadow: var(--gray-3) 0 2px 4px;
 }
 
 h2 {
@@ -40,17 +50,8 @@ h2 {
     text-shadow: var(--gray-3) 0 4px 4px;
 }
 
-h1 {
-    font-size: 32px;
-    text-shadow: var(--gray-3) 0 2px 4px;
-}
-
-accent-red {
-    color: #FF6666;
-}
-
-accent-yellow {
-    color: #FFD966;
+h3 {
+    font-size: 18px;
 }
 
 html, body {
@@ -63,21 +64,23 @@ html, body {
 body::-webkit-scrollbar {
     display: none;
 }
+
+/* Sticky footer: the body is at least one screen tall and the footer is
+   pushed to its bottom. Long pages push it further down as normal. */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+#site-footer {
+    margin-top: auto;
+}
 /*#endregion*/
 
 /*#region ----- Global Button Properties */
-.button-style-1 {
-    display: inline-block;
-    border-radius: 0.3em;
-    line-height: 36px;
-    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.5));
-    transition: all 0.25s ease-in-out;
-}
-.button-style-1:hover {
-    background-color: var(--blue-2);
-    cursor: pointer;
-}
-
+.button-style-1,
 .button-style-2 {
     display: inline-block;
     border-radius: 0.3em;
@@ -85,29 +88,39 @@ body::-webkit-scrollbar {
     filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.5));
     transition: all 0.25s ease-in-out;
 }
+
+.button-style-1:hover,
 .button-style-2:hover {
     background-color: var(--blue-2);
     cursor: pointer;
 }
 
-.button-style-steam {
+/* Shared look for the Steam and "view my" buttons: a blue fill that
+   sweeps in from the left on hover. */
+.button-style-steam,
+.button-style-viewmy {
     background-color: var(--blue-2);
     background-image: linear-gradient(90deg, var(--blue-1) 0%, var(--blue-0) 100%);
     background-repeat: no-repeat;
     background-size: 0% 100%;
     border-radius: 0.3em;
-    width: 160px;
-    margin-right: 10px;
     font-size: 20px;
     border: 2px solid var(--gray-2);
-    filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.5));
-    transition: background-size 0.25s ease-in-out, border-color 0.25s ease-in-out, filter 0.25s ease-in-out;
     cursor: pointer;
 }
-.button-style-steam:hover {
+
+.button-style-steam:hover,
+.button-style-viewmy:hover {
     background-size: 100% 100%;
     border-color: var(--blue-1);
     filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.35));
+}
+
+.button-style-steam {
+    width: 160px;
+    margin-right: 10px;
+    filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.5));
+    transition: background-size 0.25s ease-in-out, border-color 0.25s ease-in-out, filter 0.25s ease-in-out;
 }
 
 .button-style-itch {
@@ -122,6 +135,7 @@ body::-webkit-scrollbar {
     filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.5));
     transition: all 0.25s ease-in-out;
 }
+
 .button-style-itch:hover {
     cursor: pointer;
     background: #ff9997;
@@ -136,17 +150,13 @@ body::-webkit-scrollbar {
 }
 
 .button-style-viewmy {
-    background-color: var(--blue-2);
-    background-image: linear-gradient(90deg, var(--blue-1) 0%, var(--blue-0) 100%);
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    border-radius: 0.3em;
     width: 260px;
-    font-size: 20px;
-    border: 2px solid var(--gray-2);
     filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
     transition: background-size 0.25s ease-in-out, border-color 0.25s ease-in-out, transform 0.25s ease-in-out, filter 0.25s ease-in-out;
-    cursor: pointer;
+}
+
+.button-style-viewmy:hover {
+    transform: translateY(-3px);
 }
 
 .button-style-viewmy * {
@@ -160,20 +170,13 @@ body::-webkit-scrollbar {
     gap: 12px;
 }
 
-.button-style-viewmy-icon-image,
-.button-style-viewmy-icon {
+.button-style-viewmy-icon-image {
     width: 28px;
     height: 28px;
     flex: 0 0 28px;
 }
 
-.button-style-viewmy:hover {
-    background-size: 100% 100%;
-    border-color: var(--blue-1);
-    transform: translateY(-3px);
-    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.35));
-}
-
+/* Must stay after .button-style-itch: overrides its display. */
 .button-style-steam,
 .button-style-itch,
 .button-style-viewmy {
@@ -196,13 +199,9 @@ header {
     min-height: 50px;
     max-height: 50px;
     z-index: 80;
-    background: linear-gradient(90deg, var(--pink-1) 0%, var(--blue-1) 100%);
-    border-bottom: 3px solid var(--blue-3a);
+    background: linear-gradient(90deg, var(--blue-1) 0%, var(--pink-1) 100%);
+    border-bottom: 3px solid var(--blue-3);
     filter: drop-shadow(0px 4px 1px rgba(0,0,0,0.2));
-}
-
-header > .logo {
-    margin: 0 auto;
 }
 
 .main-nav {
@@ -218,10 +217,72 @@ nav a {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+/*#endregion*/
 
-nav img {
+/*#region ----- Mobile Navigation */
+.mobile-burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 12px;
+    z-index: 100001;
+    width: 50px;
     height: 50px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 8px;
 }
+
+.mobile-burger .bar { display: none; }
+
+.mobile-burger::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20d='M4%207h16M4%2012h16M4%2017h16'/%3E%3C/svg%3E");
+}
+
+.mobile-burger.open::before {
+    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20d='M6%206l12%2012M6%2018L18%206'/%3E%3C/svg%3E");
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    right: 16px;
+    top: 50px;
+    background: var(--blue-4);
+    border: 1px solid var(--blue-3);
+    border-radius: 6px;
+    padding: 8px;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 99999;
+    min-width: 180px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+
+.mobile-menu a {
+    padding: 10px 14px;
+    display: block;
+    color: white;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu.iframe-mode {
+    position: static !important;
+    right: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    min-width: auto !important;
+    display: none !important;
+    box-shadow: none !important;
+}
+
+.mobile-menu.iframe-mode.open { display: flex !important; }
 /*#endregion*/
 
 /*#region ----- Promotional Image Banner */
@@ -240,7 +301,7 @@ nav img {
     height: 100%;
     object-fit: cover;
     object-position: 50% 50%;
-    mask-image: linear-gradient(to bottom, black 0%, black 0%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
 }
 
 .box-promo-textarea {
@@ -259,10 +320,38 @@ nav img {
     bottom: 0;
 }
 
+/* Homepage hero (the one with the contact button): room above the
+   portrait, and a tighter gap below it so the button still clears
+   the bottom of the banner. */
+.box-promo-textarea:has(.hero-contact) {
+    top: 16px;
+}
+
+.box-promo-textarea:has(.hero-contact) .profile-picture {
+    margin-bottom: 20px;
+}
+
 .box-promo-textarea h1,
 .box-promo-textarea h2 {
     text-align: center;
     margin: 0;
+}
+
+.profile-picture {
+    width: 188px;
+    max-width: 188px;
+    height: 188px;
+    margin: 16px auto 32px auto;
+    border-radius: 50%;
+    border: 2px solid var(--blue-1);
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.7));
+}
+
+/* Same size as the other buttons; only its spacing differs.
+   Must stay after the button rules: overrides their margin. */
+.hero-contact {
+    margin-top: 12px;
+    margin-right: 0;
 }
 /*#endregion*/
 
@@ -270,7 +359,6 @@ nav img {
 .page-content-container {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     width: 100%;
     max-width: 1080px;
     margin: 64px auto;
@@ -278,7 +366,7 @@ nav img {
     padding: 0 32px 24px 32px;
 }
 
-.centered-text {    
+.centered-text {
     width: 90%;
     margin: auto;
 }
@@ -298,6 +386,12 @@ nav img {
     font-size: 22px;
     color: var(--pink-1);
     cursor: pointer;
+}
+
+/* Space before a new homepage section (e.g. Recent Projects, Skillset).
+   Adds to the container's 24px gap. */
+.centered-text.section-start {
+    margin-top: 29px;
 }
 /*#endregion*/
 
@@ -320,145 +414,7 @@ nav img {
 }
 /*#endregion*/
 
-/*#region ----- Homepage Games grid */
-.homepage-game-collection {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    justify-content: space-evenly;
-    align-items: stretch;
-    position: relative;
-    width: 100%;
-    height: auto;
-}
-
-.homepage-game {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 50%;
-    height: auto;
-    justify-content: flex-start;
-    align-self: stretch;
-}
-
-.homepage-game-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid transparent;
-    background:
-        linear-gradient(var(--blue-2), var(--blue-2)) padding-box,
-        linear-gradient(90deg, var(--pink-1), var(--blue-1)) border-box;
-    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
-    overflow: hidden;
-}
-
-.homepage-game:nth-child(2) .homepage-game-card {
-    background:
-        linear-gradient(var(--blue-2), var(--blue-2)) padding-box,
-        linear-gradient(90deg, var(--blue-1), var(--pink-1)) border-box;
-}
-
-.homepage-game-card:hover {
-    cursor: pointer;
-}
-
-.homepage-game-card > img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    object-position: 50% 0%;
-}
-
-.homepage-game-card-info {
-    position: relative;
-    background: var(--blue-2);
-    padding: 12px 16px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.homepage-game-card-info::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--pink-1), var(--blue-1));
-}
-
-.homepage-game:nth-child(2) .homepage-game-card-info::before {
-    background: linear-gradient(90deg, var(--blue-1), var(--pink-1));
-}
-
-.homepage-game-card-info h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--blue-1);
-}
-
-.homepage-game-card-info p {
-    font-size: 15px;
-    color: #cccccc;
-    padding-bottom: 8px;
-}
-
-.homepage-game-card-actions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.homepage-game-card-actions .button-style-steam {
-    margin-right: 0;
-}
-/*#endregion*/
-
-/*#region ----- Homepage Skills grid */
-.skills-container {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    margin-top: 32px;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.skill-title h3 {
-    font-weight: bold;
-    text-align: center;
-    color: #2996CC;
-    margin-bottom: 8px;
-}
-
-.skill-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.skill-row p {
-    text-align: center;
-}
-
-.skill-item {
-    background: var(--blue-2);
-    width: 100%;
-    padding: 15px;
-    border: 2px solid var(--gray-2);
-    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
-    box-sizing: border-box;
-    transition: all 0.1s ease-in-out;
-}
-/*#endregion*/
-
-/*#region ----- Games collection grid */
+/*#region ----- Games Collection Grid (personal / professional pages) */
 .game-collection {
     display: flex;
     flex-direction: column;
@@ -480,7 +436,7 @@ nav img {
     object-fit: cover;
     object-position: 50% 0%;
     border: 2px solid transparent;
-    border-image: linear-gradient(90deg, var(--pink-1), var(--blue-1)) 1;
+    border-image: linear-gradient(90deg, var(--blue-1), var(--pink-1)) 1;
     filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
 }
 
@@ -520,9 +476,20 @@ releasedate {
     flex-direction: row;
     margin-top: 20px;
 }
+/*#endregion*/
 
+/*#region ----- Homepage Spotlight */
+/* Must stay after the Games Collection Grid: reuses .game and overrides it. */
 .homepage-spotlight {
-    margin: 8px 0 20px;
+    /* No bottom margin: the section divider below supplies the spacing. */
+    margin: 8px 0 0;
+
+    /* Featured border tunables, independent of the heading's :root values.
+       Delete these to put the border back in sync with the heading. */
+    --glitch-intensity: 3;
+    --glitch-border-width: 3px;
+    --glitch-speed: 0.5s;
+    --sweep-speed: 6s;
 }
 
 .homepage-spotlight img {
@@ -544,87 +511,367 @@ releasedate {
 .homepage-spotlight .game-store-links .button-style-steam {
     margin-right: 0;
 }
-/*#endregion*/
 
-/*#region ----- Profile Picture */
-.profile-picture {
-    width: 200px;
-    max-width: 200px;
-    height: 200px;
-    margin: 16px auto 32px auto;
-    border-radius: 50%;
-    border: 2px solid var(--blue-1);
-    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.7));
+.spotlight-frame {
+    position: relative;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+/* The image's own static gradient border is replaced by the animated
+   ring (see Glitch Effects); the transparent border keeps its size. */
+.homepage-spotlight .spotlight-frame img {
+    border-image: none;
+    border-color: transparent;
 }
 /*#endregion*/
 
-/*#region ----- Mobile Navigation */
-.mobile-burger {
+/*#region ----- Homepage Games Grid */
+.homepage-game-collection {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    right: 12px;
-    z-index: 100001;
-    width: 50px;
-    height: 50px;
-    padding: 0;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: space-evenly;
+    align-items: stretch;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.homepage-game {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 50%;
+    height: auto;
+    justify-content: flex-start;
+    align-self: stretch;
+}
+
+.homepage-game-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+    background:
+        linear-gradient(var(--blue-2), var(--blue-2)) padding-box,
+        linear-gradient(90deg, var(--blue-1), var(--pink-1)) border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
+    overflow: hidden;
+}
+
+.homepage-game-card:hover {
     cursor: pointer;
-    border-radius: 8px;
 }
 
-.mobile-burger .bar { display: none; }
-
-.mobile-burger::before {
-    content: "";
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20d='M4%207h16M4%2012h16M4%2017h16'/%3E%3C/svg%3E");
+.homepage-game-card > img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    /* Vertical crop per card: set --img-y inline on the <img>
+       (0% = top of the image, 50% = centre, 100% = bottom). */
+    object-position: 50% var(--img-y, 0%);
 }
 
-.mobile-burger.open::before {
-    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20d='M6%206l12%2012M6%2018L18%206'/%3E%3C/svg%3E");
-}
-
-.mobile-menu {
-    display: none;
-    position: fixed;
-    right: 16px;
-    top: 50px;
-    background: #1B2838;
-    border: 1px solid var(--blue-3a);
-    border-radius: 6px;
-    padding: 8px;
+.homepage-game-card-info {
+    position: relative;
+    background: var(--blue-2);
+    padding: 12px 16px 16px;
+    display: flex;
     flex-direction: column;
     gap: 8px;
-    z-index: 99999;
-    min-width: 180px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.45);
 }
 
-.mobile-menu a {
-    padding: 10px 14px;
-    display: block;
-    color: white;
+.homepage-game-card-info::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue-1), var(--pink-1));
 }
 
-.mobile-menu.open { display: flex; }
-
-.mobile-menu.iframe-mode {
-    position: static !important;
-    right: auto !important;
-    top: auto !important;
-    width: 100% !important;
-    min-width: auto !important;
-    display: none !important;
-    box-shadow: none !important;
+.homepage-game-card-info h2 {
+    font-size: 22px;
 }
 
-.mobile-menu.iframe-mode.open { display: flex !important; }
+.homepage-game-card-info p {
+    font-size: 15px;
+    color: #cccccc;
+    padding-bottom: 8px;
+}
+
+/* Project type badge over a card image. Colour it with a modifier:
+   .card-badge--professional (blue) or .card-badge--personal (pink). */
+.card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 1px solid var(--badge-color);
+    border-radius: 0.3em;
+    background: var(--blue-2);
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.6));
+}
+
+.card-badge--professional { --badge-color: var(--blue-1); }
+.card-badge--personal { --badge-color: var(--pink-1); }
+
+.card-badge,
+.card-badge * {
+    font-size: 13px;
+    line-height: 1;
+}
+
+.card-badge svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--badge-color);
+}
+
+.homepage-game-card-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.homepage-game-card-actions .button-style-steam {
+    margin-right: 0;
+}
 /*#endregion*/
 
-/*#region ----- Media Queries */
+/*#region ----- Homepage Skills Grid */
+.skills-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-item {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid transparent;
+    background:
+        linear-gradient(var(--blue-2), var(--blue-2)) padding-box,
+        linear-gradient(90deg, var(--blue-1), var(--pink-1)) border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
+    transition: all 0.1s ease-in-out;
+}
+
+.skill-title h3 {
+    text-align: center;
+    color: var(--blue-1);
+    margin-bottom: 8px;
+}
+
+.skill-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.skill-row p {
+    text-align: center;
+}
+/*#endregion*/
+
+/*#region ----- Glitch Effects */
+/* --- Featured border: rotating gradient ring with stutter frames --- */
+@property --spotlight-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* Rotating blue/pink ring, masked to just the border area. */
+.spotlight-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    padding: var(--glitch-border-width);
+    background: conic-gradient(
+        from var(--spotlight-angle),
+        var(--blue-1),
+        var(--pink-1),
+        var(--blue-1)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    animation:
+        spotlight-sweep var(--sweep-speed) linear infinite,
+        spotlight-stutter var(--glitch-speed) steps(1, end) infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes spotlight-sweep {
+    to { --spotlight-angle: 360deg; }
+}
+
+/* Brief displaced, dimmed frames punched into the smooth sweep. */
+@keyframes spotlight-stutter {
+    0%, 45%   { transform: translate(0, 0); opacity: 1; }
+    47%       { transform: translate(var(--glitch-offset), calc(var(--glitch-offset) * -0.5)); opacity: 0.45; }
+    49%       { transform: translate(calc(var(--glitch-offset) * -1), 0); opacity: 1; }
+    51%, 79%  { transform: translate(0, 0); opacity: 1; }
+    81%       { transform: translate(calc(var(--glitch-offset) * -0.6), var(--glitch-offset)); opacity: 0.55; }
+    84%, 100% { transform: translate(0, 0); opacity: 1; }
+}
+
+/* --- Featured heading: sweeping gradient text with offset ghosts --- */
+.glitch-heading {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 38px;
+    /* Same shadow as the other h2s. text-shadow can't be used: it would paint
+       over the clipped gradient, so drop-shadow follows the glyphs instead. */
+    text-shadow: none;
+    filter: drop-shadow(var(--gray-3) 0 4px 4px);
+    background: linear-gradient(
+        90deg,
+        var(--blue-1),
+        var(--pink-1),
+        var(--blue-1)
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: heading-sweep var(--sweep-speed) linear infinite;
+}
+
+/* Offset colour ghosts, visible only on the stutter frames.
+   They copy the text from data-text, so keep it matching the heading. */
+.glitch-heading::before,
+.glitch-heading::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.glitch-heading::before {
+    color: var(--pink-1);
+    animation: heading-ghost-pink var(--glitch-speed) steps(1, end) infinite;
+}
+
+.glitch-heading::after {
+    color: var(--blue-1);
+    animation: heading-ghost-blue var(--glitch-speed) steps(1, end) infinite;
+}
+
+@keyframes heading-sweep {
+    to { background-position: 200% 0; }
+}
+
+@keyframes heading-ghost-pink {
+    0%, 44%   { transform: translate(0, 0); opacity: 0; clip-path: inset(0 0 0 0); }
+    46%       { transform: translate(calc(var(--glitch-offset) * -1), 1px); opacity: 0.85; clip-path: inset(10% 0 55% 0); }
+    49%       { transform: translate(var(--glitch-offset), -1px); opacity: 0.7; clip-path: inset(60% 0 8% 0); }
+    52%, 100% { transform: translate(0, 0); opacity: 0; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes heading-ghost-blue {
+    0%, 44%   { transform: translate(0, 0); opacity: 0; clip-path: inset(0 0 0 0); }
+    46%       { transform: translate(var(--glitch-offset), -1px); opacity: 0.85; clip-path: inset(55% 0 12% 0); }
+    49%       { transform: translate(calc(var(--glitch-offset) * -1), 1px); opacity: 0.7; clip-path: inset(6% 0 62% 0); }
+    52%, 100% { transform: translate(0, 0); opacity: 0; clip-path: inset(0 0 0 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spotlight-frame::before,
+    .glitch-heading,
+    .glitch-heading::before,
+    .glitch-heading::after {
+        animation: none;
+    }
+}
+/*#endregion*/
+
+/*#region ----- Testimonials */
+.testimonial-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+    gap: 8px;
+}
+
+.testimonial-item {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid transparent;
+    background:
+        linear-gradient(var(--blue-2), var(--blue-2)) padding-box,
+        linear-gradient(90deg, var(--blue-1), var(--pink-1)) border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
+    transition: all 0.1s ease-in-out;
+}
+
+reviewer {
+    font-size: 20px;
+    color: var(--blue-1);
+    margin: 0 auto;
+}
+
+position {
+    font-size: 17px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--blue-1);
+}
+/*#endregion*/
+
+/*#region ----- Footer */
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    max-width: 100%;
+    background-color: var(--blue-3);
+    border-top: 3px solid var(--blue-1);
+    box-shadow: 0 50vh 0 50vh var(--blue-4);
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 16px;
+}
+
+.footer-section h3 {
+    color: var(--blue-1);
+}
+
+.footer-section i {
+    width: 100%;
+    text-align: center;
+}
+/*#endregion*/
+
+/*#region ----- Media Queries (keep last so they override everything above) */
 @media screen and (max-width: 900px) {
     .main-nav { display: none; }
     header { justify-content: flex-start; padding-left: 12px; }
@@ -650,99 +897,49 @@ releasedate {
         padding: 0 4px;
     }
 
+    .spotlight-frame {
+        width: 100%;
+        align-self: stretch;
+    }
+
+    .homepage-spotlight .spotlight-frame img {
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
     .homepage-game-collection {
         flex-direction: column;
         justify-content: center;
         gap: 20px;
     }
 
-    .homepage-game {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
+    /* Flatten the two card columns so the stacked cards keep the same
+       reading order as the desktop rows (left, right, left, right). */
+    .homepage-game { display: contents; }
+
+    .homepage-game-collection .homepage-game-card {
         width: 100%;
         max-width: 720px;
-        height: auto;
         margin: 0 auto;
-        align-self: center;
         text-align: center;
     }
 
-    .homepage-game-card { width: 100%; }
+    .homepage-game:nth-child(1) .homepage-game-card:nth-child(1) { order: 1; }
+    .homepage-game:nth-child(2) .homepage-game-card:nth-child(1) { order: 2; }
+    .homepage-game:nth-child(1) .homepage-game-card:nth-child(2) { order: 3; }
+    .homepage-game:nth-child(2) .homepage-game-card:nth-child(2) { order: 4; }
 
     .homepage-game-card > img { height: 220px; }
+
+    /* Same size as the other section headings, so it fits on one line. */
+    .glitch-heading { font-size: 28px; }
 }
 
 @media screen and (min-width: 900px) {
     .mobile-burger { display: none; }
     .mobile-menu { display: none; }
     .skills-container .skill-item { width: calc(50% - 8px); }
-}
-/*#endregion*/
-
-/*#region ----- Testimonials */
-.testimonial-grid {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-content: space-between;
-    gap: 8px;
-}
-
-.testimonial-item {
-    background: var(--blue-2);
-    width: 100%;
-    padding: 15px;
-    border: 2px solid transparent;
-    background:
-        linear-gradient(var(--blue-2), var(--blue-2)) padding-box,
-        linear-gradient(90deg, var(--pink-1), var(--blue-1)) border-box;
-    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
-    box-sizing: border-box;
-    transition: all 0.1s ease-in-out;
-}
-
-reviewer {
-    font-size: 20px;
-    color: var(--blue-1);
-    margin: 0 auto;
-}
-
-position {
-    font-size: 17px;
-    font-weight: bold;
-    font-style: italic;
-    color: var(--blue-1);
-}
-/*#endregion*/
-
-/*#region ----- Footer */
-.footer-container {
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    justify-content: center;
-    margin-top: 64px;
-    max-width: 100%;
-    background-color: var(--blue-3);
-    border-top: 3px solid var(--blue-1);
-    box-shadow: 0 50vh 0 50vh #1B2838;
-}
-
-.footer-section {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 16px;
-}
-
-.footer-section h3 {
-    color: var(--blue-1);
-}
-
-.footer-section i {
-    width: 100%;
-    text-align: center;
 }
 /*#endregion*/
