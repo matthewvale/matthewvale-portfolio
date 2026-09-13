@@ -64,6 +64,19 @@ html, body {
 body::-webkit-scrollbar {
     display: none;
 }
+
+/* Sticky footer: the body is at least one screen tall and the footer is
+   pushed to its bottom. Long pages push it further down as normal. */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+#site-footer {
+    margin-top: auto;
+}
 /*#endregion*/
 
 /*#region ----- Global Button Properties */
@@ -835,7 +848,6 @@ position {
     flex-direction: row;
     align-items: start;
     justify-content: center;
-    margin-top: 64px;
     max-width: 100%;
     background-color: var(--blue-3);
     border-top: 3px solid var(--blue-1);
