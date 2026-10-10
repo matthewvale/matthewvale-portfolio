@@ -1,5 +1,5 @@
 // Boots the game and runs the loop: fixed-step logic, render every frame.
-window.Decoherence = window.Decoherence || {};
+window.OutOfMind = window.OutOfMind || {};
 
 (function (DC) {
     'use strict';
@@ -45,4 +45,4 @@ window.Decoherence = window.Decoherence || {};
 
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
     else boot();
-})(window.Decoherence);
+})(window.OutOfMind);

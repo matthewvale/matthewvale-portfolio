@@ -1,5 +1,5 @@
 // Draws the board onto a canvas. Reads game state only, never changes it.
-window.Decoherence = window.Decoherence || {};
+window.OutOfMind = window.OutOfMind || {};
 
 (function (DC) {
     'use strict';
@@ -508,4 +508,4 @@ window.Decoherence = window.Decoherence || {};
     }
 
     DC.Renderer = Renderer;
-})(window.Decoherence);
+})(window.OutOfMind);

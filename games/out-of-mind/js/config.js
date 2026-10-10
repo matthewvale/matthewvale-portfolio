@@ -1,5 +1,5 @@
-// Decoherence: every tunable number lives here so balancing never means hunting through logic.
-window.Decoherence = window.Decoherence || {};
+// Out of Mind: every tunable number lives here so balancing never means hunting through logic.
+window.OutOfMind = window.OutOfMind || {};
 
 (function (DC) {
     'use strict';
@@ -44,7 +44,7 @@ window.Decoherence = window.Decoherence || {};
         PumpkinChance: 0.03,             // at most one pumpkin on the board, one collectable per level
         // #endregion
 
-        BestLevelKey: 'decoherence.bestLevel',
-        MutedKey: 'decoherence.muted'
+        BestLevelKey: 'outOfMind.bestLevel',
+        MutedKey: 'outOfMind.muted'
     });
-})(window.Decoherence);
+})(window.OutOfMind);

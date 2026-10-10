@@ -1,7 +1,7 @@
 // Background music: an original, looping spooky-comedy tune. A plucked harpsichord carries a
 // minor-key melody over a bouncing chiptune bass, with finger snaps on the off-beats.
 // Everything is synthesised and scheduled ahead of time on the audio clock so it never drifts.
-window.Decoherence = window.Decoherence || {};
+window.OutOfMind = window.OutOfMind || {};
 
 (function (DC) {
     'use strict';
@@ -167,4 +167,4 @@ window.Decoherence = window.Decoherence || {};
     }
 
     DC.Music = Music;
-})(window.Decoherence);
+})(window.OutOfMind);

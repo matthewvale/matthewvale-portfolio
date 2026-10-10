@@ -1,4 +1,4 @@
-## Decoherence
+## Out of Mind
 
 A small browser game where the world only exists while you're looking at it. Plain JavaScript and a canvas, no frameworks, no build step and no asset files.
 

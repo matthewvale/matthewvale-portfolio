@@ -1,7 +1,7 @@
 // Wave function collapse over room and corridor tiles.
 // Each tile has a socket on every side (wall, door or room). Neighbouring tiles must
 // agree on the socket they share, so whatever collapses always connects properly.
-window.Decoherence = window.Decoherence || {};
+window.OutOfMind = window.OutOfMind || {};
 
 (function (DC) {
     'use strict';
@@ -191,4 +191,4 @@ window.Decoherence = window.Decoherence || {};
     DC.Direction = Object.freeze({ North: 0, East: 1, South: 2, West: 3 });
     DC.Opposite = OPPOSITE;
     DC.World = World;
-})(window.Decoherence);
+})(window.OutOfMind);

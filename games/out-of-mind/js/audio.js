@@ -1,5 +1,5 @@
 // Every sound is synthesised with the Web Audio API, so there are no audio files to load.
-window.Decoherence = window.Decoherence || {};
+window.OutOfMind = window.OutOfMind || {};
 
 (function (DC) {
     'use strict';
@@ -199,4 +199,4 @@ window.Decoherence = window.Decoherence || {};
     }
 
     DC.Sound = Sound;
-})(window.Decoherence);
+})(window.OutOfMind);

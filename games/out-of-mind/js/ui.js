@@ -1,5 +1,5 @@
 // Wires the page to the game: HUD, overlays, shrine, and keyboard, mouse and touch input.
-window.Decoherence = window.Decoherence || {};
+window.OutOfMind = window.OutOfMind || {};
 
 (function (DC) {
     'use strict';
@@ -251,4 +251,4 @@ window.Decoherence = window.Decoherence || {};
     }
 
     DC.Ui = Ui;
-})(window.Decoherence);
+})(window.OutOfMind);

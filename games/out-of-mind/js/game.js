@@ -1,6 +1,6 @@
 // Game rules: light collapses the world, the unseen forgets itself, ghosts move only in the dark.
 // The game knows nothing about the DOM or canvas; it announces what happened through events.
-window.Decoherence = window.Decoherence || {};
+window.OutOfMind = window.OutOfMind || {};
 
 (function (DC) {
     'use strict';
@@ -594,4 +594,4 @@ window.Decoherence = window.Decoherence || {};
     DC.Phase = Phase;
     DC.Item = Item;
     DC.Game = Game;
-})(window.Decoherence);
+})(window.OutOfMind);
