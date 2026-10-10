@@ -523,7 +523,7 @@ window.OutOfMind = window.OutOfMind || {};
             return dirs;
         }
 
-        // Walking into a frozen ghost breaks the ice: no damage, the freeze is spent,
+        // Walking into a frozen ghost breaks the ice: no damage, the freeze is spent, it drops gold,
         // and the ghost decoheres somewhere far away in the dark.
         shatter(index) {
             const ghost = this.ghosts[index];
@@ -531,8 +531,10 @@ window.OutOfMind = window.OutOfMind || {};
             this.shatterCell = ghost.cell;
             ghost.frozen = false;
             ghost.cell = this.farDarkCell();
+            this.gold += C.ShatterGold;
             this.sound('shatter');
-            this.say('Shattered! It will reform somewhere in the dark.');
+            this.sound('gold');
+            this.say(`Shattered! +${C.ShatterGold} gold. It will reform somewhere in the dark.`);
         }
 
         hurtByGhost(index, text) {

@@ -33,6 +33,7 @@ window.OutOfMind = window.OutOfMind || {};
         // #region Shrine
         HealCost: 5,
         FreezeSlotCost: 10,
+        ShatterGold: 2,                  // reward for breaking a frozen ghost
         // #endregion
 
         // #region Spawning

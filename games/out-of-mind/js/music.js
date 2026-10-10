@@ -11,7 +11,7 @@ window.OutOfMind = window.OutOfMind || {};
     const STEPS_PER_BAR = 8;
     const LOOKAHEAD_SECONDS = 0.15;
     const SCHEDULER_MS = 25;
-    const FULL_LEVEL = 0.3;
+    const FULL_LEVEL = 0.24;
 
     // #region Score
 
