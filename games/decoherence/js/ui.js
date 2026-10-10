@@ -212,6 +212,10 @@ window.Decoherence = window.Decoherence || {};
         }
 
         showPhase(phase) {
+            if (phase === Phase.Playing) this.sound.playMusic(1);
+            else if (phase === Phase.Shrine) this.sound.playMusic(0.45);
+            else this.sound.stopMusic();
+
             this.el.titleOverlay.hidden = phase !== Phase.Title;
             this.el.shrineOverlay.hidden = phase !== Phase.Shrine;
             this.el.overOverlay.hidden = phase !== Phase.Over;

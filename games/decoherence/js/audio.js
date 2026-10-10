@@ -47,6 +47,15 @@ window.Decoherence = window.Decoherence || {};
             if (effect) effect();
         }
 
+        // level is 0..1 of the music's full volume. Music resumes from the start of the loop.
+        playMusic(level = 1) {
+            if (this.music) this.music.start(level);
+        }
+
+        stopMusic() {
+            if (this.music) this.music.stop();
+        }
+
         // amount is 0..1: how close the nearest unseen ghost is.
         setDread(amount, active) {
             if (!this.context) return;
@@ -70,6 +79,8 @@ window.Decoherence = window.Decoherence || {};
             this.noiseBuffer = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
             const data = this.noiseBuffer.getChannelData(0);
             for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+
+            this.music = DC.Music ? new DC.Music(ctx, this.master, this.noiseBuffer) : null;
 
             this.droneFilter = ctx.createBiquadFilter();
             this.droneFilter.type = 'lowpass';

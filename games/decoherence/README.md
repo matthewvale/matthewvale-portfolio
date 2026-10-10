@@ -30,5 +30,6 @@ The world is generated with wave function collapse over 81 tiles. Every tile has
 | `js/game.js` | Rules: light, memory, ghosts, blink, shrine |
 | `js/render.js` | Canvas drawing |
 | `js/audio.js` | Synthesised Web Audio sound effects and the dread drone |
+| `js/music.js` | Original looping background tune, scheduled on the audio clock |
 | `js/ui.js` | HUD, overlays and keyboard, mouse and touch input |
 | `js/main.js` | Boot and the fixed-step game loop |
