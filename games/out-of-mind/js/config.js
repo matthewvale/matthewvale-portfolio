@@ -34,7 +34,8 @@ window.OutOfMind = window.OutOfMind || {};
         HealCost: 5,
         FreezeSlotCost: 10,
         TossCost: 1,                     // a maxed upgrade becomes a coin toss for fun
-        ShatterGold: 2,                  // reward for breaking a frozen ghost
+        ShatterGold: 2,
+        PumpkinGold: 10,                  // reward for breaking a frozen ghost
         // #endregion
 
         // #region Spawning

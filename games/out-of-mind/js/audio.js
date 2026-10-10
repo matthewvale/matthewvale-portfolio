@@ -156,8 +156,7 @@ window.OutOfMind = window.OutOfMind || {};
             this.noise(0.4, 0.05, 7000, 'highpass');
         }
 
-        // A nod to Bach's Toccata in D minor on a spooky organ, resolving into a bright major fanfare,
-        // then the browser's own voice wishes the player a happy Halloween.
+        // A nod to Bach's Toccata in D minor on a spooky organ, resolving into a bright major fanfare.
         halloween() {
             const organ = (f, at, length, volume = 0.12) => {
                 this.tone(f, length, 'sawtooth', volume * 0.5, null, at);
@@ -172,20 +171,6 @@ window.OutOfMind = window.OutOfMind || {};
             }
             [587, 740, 880, 1175].forEach((f, k) => this.tone(f, 0.9, 'triangle', 0.13, null, at + 0.05 + k * 0.06));
             this.noise(0.6, 0.08, 6000, 'highpass');
-
-            if (!('speechSynthesis' in window)) return;
-
-            setTimeout(() => {
-                if (this.muted) return;
-                try {
-                    const line = new SpeechSynthesisUtterance('Happy Halloween!');
-                    line.pitch = 0.6;
-                    line.rate = 0.85;
-                    line.volume = 1;
-                    window.speechSynthesis.cancel();
-                    window.speechSynthesis.speak(line);
-                } catch (err) { /* speech is a bonus, never required */ }
-            }, (at + 0.4) * 1000);
         }
 
         tone(frequency, duration, type = 'sine', volume = 0.2, slideTo = null, delay = 0) {

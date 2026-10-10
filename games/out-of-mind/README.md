@@ -10,7 +10,7 @@ Play it from the portfolio's Personal Games page, or open `index.html` from any 
 - Ghosts only move while unobserved. Pick up snowflakes for freeze charges, then tap or click a ghost in your light to freeze it. Walk into a frozen ghost to shatter it for 2 gold; it reforms somewhere far away in the dark.
 - Stand still for five seconds and your light blinks, giving every ghost a free step.
 - Reach the green door, then spend gold at the shrine on health or extra freeze slots.
-- Find a pumpkin for a Halloween surprise.
+- Find a pumpkin for a Halloween surprise and 10 gold.
 
 ### How it works
 ```mermaid
