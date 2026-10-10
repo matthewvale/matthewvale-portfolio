@@ -24,6 +24,11 @@ window.Decoherence = window.Decoherence || {};
         Gold: '#f5c542',
         GoldEdge: '#a8781a',
         Spike: '#ff4d6d',
+        Pumpkin: '#ff8a1f',
+        PumpkinRib: '#c85a00',
+        PumpkinStem: '#4caf50',
+        PumpkinFace: '#2a1200',
+        Celebrate: '#ff8a1f',
         LightFrame: 'rgba(43, 165, 226, 0.35)'
     });
 
@@ -34,6 +39,8 @@ window.Decoherence = window.Decoherence || {};
     const CORRIDOR_END = 0.7;
     const NOISE_REFRESH_MS = 110;
     const HURT_FLASH_MS = 350;
+    const CELEBRATE_MS = 2600;
+    const CONFETTI_COLOURS = Object.freeze(['#ff8a1f', '#ff60ff', '#2BA5E2', '#f5c542', '#9b5cff']);
 
     class Renderer {
         constructor(canvas, game) {
@@ -102,6 +109,7 @@ window.Decoherence = window.Decoherence || {};
                 if (i === game.exit) this.drawExit(r, time);
                 else if (game.items[i] === DC.Item.Gold) this.drawGold(r);
                 else if (game.items[i] === DC.Item.Spike) this.drawSpikes(r);
+                else if (game.items[i] === DC.Item.Pumpkin) this.drawPumpkin(r);
             }
             ctx.globalAlpha = 1;
 
@@ -119,6 +127,8 @@ window.Decoherence = window.Decoherence || {};
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
                 ctx.fillRect(-8, -8, this.cssWidth + 16, this.cssHeight + 16);
             }
+            const sinceCelebrate = time - game.celebrateAt;
+            if (sinceCelebrate >= 0 && sinceCelebrate < CELEBRATE_MS) this.drawCelebration(sinceCelebrate);
             if (sinceHurt < HURT_FLASH_MS) {
                 ctx.fillStyle = `rgba(255, 60, 90, ${0.3 * (1 - sinceHurt / HURT_FLASH_MS)})`;
                 ctx.fillRect(-8, -8, this.cssWidth + 16, this.cssHeight + 16);
@@ -326,6 +336,74 @@ window.Decoherence = window.Decoherence || {};
                 ctx.lineTo(cx + half, base);
             }
             ctx.fill();
+        }
+
+        drawPumpkin(r) {
+            const ctx = this.ctx;
+            const rx = r.s * 0.24;
+            const ry = r.s * 0.19;
+            const cy = r.cy + r.s * 0.04;
+
+            ctx.fillStyle = Colour.PumpkinStem;
+            ctx.fillRect(r.cx - r.s * 0.03, cy - ry - r.s * 0.09, r.s * 0.06, r.s * 0.1);
+
+            ctx.fillStyle = Colour.Pumpkin;
+            ctx.beginPath();
+            ctx.ellipse(r.cx, cy, rx, ry, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = Colour.PumpkinRib;
+            ctx.lineWidth = Math.max(1, r.s * 0.025);
+            for (const k of [-0.45, 0, 0.45]) {
+                ctx.beginPath();
+                ctx.ellipse(r.cx + rx * k, cy, rx * 0.35, ry * 0.95, 0, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            ctx.fillStyle = Colour.PumpkinFace;
+            const eye = r.s * 0.05;
+            for (const side of [-1, 1]) {
+                ctx.beginPath();
+                ctx.moveTo(r.cx + side * rx * 0.45 - eye, cy - ry * 0.1);
+                ctx.lineTo(r.cx + side * rx * 0.45, cy - ry * 0.5);
+                ctx.lineTo(r.cx + side * rx * 0.45 + eye, cy - ry * 0.1);
+                ctx.fill();
+            }
+            ctx.beginPath();
+            ctx.ellipse(r.cx, cy + ry * 0.35, rx * 0.5, ry * 0.2, 0, 0, Math.PI);
+            ctx.fill();
+        }
+
+        // Confetti bursting from the pumpkin plus a banner. Particle paths come from the
+        // particle's index, so they stay stable from frame to frame with no stored state.
+        drawCelebration(elapsed) {
+            const ctx = this.ctx;
+            const origin = this.rect(this.game.celebrateCell);
+            const t = elapsed / 1000;
+            const fade = 1 - elapsed / CELEBRATE_MS;
+
+            for (let p = 0; p < 48; p++) {
+                const angle = (p * 2.399) % (Math.PI * 2);
+                const speed = 60 + ((p * 37) % 90);
+                const x = origin.cx + Math.cos(angle) * speed * t;
+                const y = origin.cy + Math.sin(angle) * speed * t + 90 * t * t;
+                ctx.globalAlpha = Math.max(0, fade);
+                ctx.fillStyle = CONFETTI_COLOURS[p % CONFETTI_COLOURS.length];
+                ctx.fillRect(x, y, 4, 4);
+            }
+
+            const pop = Math.min(1, elapsed / 220);
+            const size = Math.round(Math.min(this.cssWidth / 11, 34) * (0.7 + 0.3 * pop));
+            ctx.globalAlpha = Math.max(0, Math.min(1, fade * 1.6));
+            ctx.font = `700 ${size}px Poppins, system-ui, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.lineWidth = Math.max(3, size * 0.16);
+            ctx.strokeStyle = '#1a0a00';
+            ctx.strokeText('Happy Halloween!', this.cssWidth / 2, this.cssHeight * 0.3);
+            ctx.fillStyle = Colour.Celebrate;
+            ctx.fillText('Happy Halloween!', this.cssWidth / 2, this.cssHeight * 0.3);
+            ctx.globalAlpha = 1;
         }
 
         drawExit(r, time) {

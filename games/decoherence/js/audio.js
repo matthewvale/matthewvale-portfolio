@@ -103,8 +103,41 @@ window.Decoherence = window.Decoherence || {};
                 hiss: () => this.noise(0.25, 0.03, 6000, 'highpass'),
                 wake: () => this.tone(110, 0.6, 'sine', 0.2, 55),
                 buy: () => { this.tone(784, 0.08, 'triangle', 0.15); this.tone(1175, 0.12, 'triangle', 0.13, null, 0.06); this.tone(1568, 0.25, 'sine', 0.1, null, 0.12); },
+                halloween: () => this.halloween(),
                 death: () => { this.tone(220, 1.2, 'sawtooth', 0.2, 40); this.noise(1, 0.2, 300, 'lowpass'); }
             };
+        }
+
+        // A nod to Bach's Toccata in D minor on a spooky organ, resolving into a bright major fanfare,
+        // then the browser's own voice wishes the player a happy Halloween.
+        halloween() {
+            const organ = (f, at, length, volume = 0.12) => {
+                this.tone(f, length, 'sawtooth', volume * 0.5, null, at);
+                this.tone(f * 2, length, 'square', volume * 0.25, null, at);
+                this.tone(f / 2, length, 'sine', volume, null, at);
+            };
+            const toccata = [[880, 0.12], [784, 0.12], [880, 0.5], [784, 0.1], [698, 0.1], [659, 0.1], [587, 0.1], [554, 0.3], [587, 0.6]];
+            let at = 0;
+            for (const [f, length] of toccata) {
+                organ(f, at, length + 0.05);
+                at += length;
+            }
+            [587, 740, 880, 1175].forEach((f, k) => this.tone(f, 0.9, 'triangle', 0.13, null, at + 0.05 + k * 0.06));
+            this.noise(0.6, 0.08, 6000, 'highpass');
+
+            if (!('speechSynthesis' in window)) return;
+
+            setTimeout(() => {
+                if (this.muted) return;
+                try {
+                    const line = new SpeechSynthesisUtterance('Happy Halloween!');
+                    line.pitch = 0.6;
+                    line.rate = 0.85;
+                    line.volume = 1;
+                    window.speechSynthesis.cancel();
+                    window.speechSynthesis.speak(line);
+                } catch (err) { /* speech is a bonus, never required */ }
+            }, (at + 0.4) * 1000);
         }
 
         tone(frequency, duration, type = 'sine', volume = 0.2, slideTo = null, delay = 0) {

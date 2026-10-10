@@ -231,6 +231,7 @@ svg {
 
 .message[data-tone="danger"] { color: var(--danger); }
 .message[data-tone="warning"] { color: var(--warning); }
+.message[data-tone="celebrate"] { color: #ff8a1f; font-weight: 700; }
 
 .hint {
     margin: 0;

@@ -9,7 +9,7 @@ window.Decoherence = window.Decoherence || {};
     const Socket = DC.Socket;
 
     const Phase = Object.freeze({ Title: 'title', Playing: 'playing', Shrine: 'shrine', Over: 'over' });
-    const Item = Object.freeze({ Gold: 'gold', Spike: 'spike' });
+    const Item = Object.freeze({ Gold: 'gold', Spike: 'spike', Pumpkin: 'pumpkin' });
 
     class Game {
         constructor(random = Math.random) {
@@ -29,6 +29,8 @@ window.Decoherence = window.Decoherence || {};
             this.maxCharges = C.FreezeSlotsStart;
             this.ghosts = [];
             this.hurtAt = -Infinity;
+            this.celebrateAt = -Infinity;
+            this.celebrateCell = 0;
             this.bestLevel = readBestLevel();
 
             this.startLevel();
@@ -278,6 +280,7 @@ window.Decoherence = window.Decoherence || {};
             w.place(this.exit, [Socket.Wall, exitX < C.GridWidth - 1 ? Socket.Room : Socket.Wall, Socket.Room, exitX > 0 ? Socket.Room : Socket.Wall]);
 
             this.charges = 0;
+            this.pumpkinCollected = false;
             this.ghosts = [];
             this.dark = false;
             this.armed = false;
@@ -369,6 +372,9 @@ window.Decoherence = window.Decoherence || {};
             else if (roll < C.GoldChance + C.SpikeChance) {
                 if (!this.nearItem(i, Item.Gold)) this.items[i] = Item.Spike;
             }
+            else if (roll < C.GoldChance + C.SpikeChance + C.PumpkinChance) {
+                if (!this.pumpkinCollected && !this.items.includes(Item.Pumpkin)) this.items[i] = Item.Pumpkin;
+            }
         }
 
         nearItem(i, item) {
@@ -406,6 +412,15 @@ window.Decoherence = window.Decoherence || {};
                 else {
                     this.say('Gold.');
                 }
+                return;
+            }
+
+            if (item === Item.Pumpkin) {
+                this.pumpkinCollected = true;
+                this.celebrateAt = this.time;
+                this.celebrateCell = cell;
+                this.sound('halloween');
+                this.say('Happy Halloween!', 'celebrate');
                 return;
             }
 

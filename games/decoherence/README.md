@@ -10,6 +10,7 @@ Play it from the portfolio's Personal Games page, or open `index.html` from any 
 - Ghosts only move while unobserved. Gold earns freeze charges; tap or click a ghost in your light to freeze it.
 - Stand still for five seconds and your light blinks, giving every ghost a free step.
 - Reach the green door, then spend gold at the shrine on health or extra freeze slots.
+- Find a pumpkin for a Halloween surprise.
 
 ### How it works
 ```mermaid
