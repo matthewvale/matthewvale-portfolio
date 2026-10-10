@@ -351,6 +351,23 @@ svg {
     min-width: 84px;
 }
 
+.shop-row button.toss {
+    border-color: var(--warning);
+    color: var(--warning);
+}
+
+.shop-row button.toss:active {
+    transform: scale(0.94);
+}
+
+.fx {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
 .shop-message {
     min-height: 1.4em;
     margin: 6px 0 12px !important;

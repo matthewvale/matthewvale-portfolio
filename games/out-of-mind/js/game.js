@@ -210,6 +210,16 @@ window.OutOfMind = window.OutOfMind || {};
             return { ok: true, text: `You can now hold ${this.maxCharges} freezes.` };
         }
 
+        // Once an upgrade is maxed, spare gold can be tossed into the shrine purely for joy.
+        tossCoin() {
+            if (this.gold < C.TossCost) return this.refuse('Not enough gold.');
+
+            this.gold -= C.TossCost;
+            this.sound('coinToss');
+            const lines = ['The shrine chimes with delight!', 'A shower of sparkles!', 'Your coin sings as it falls.', 'The spirits applaud.', 'Lucky toss!'];
+            return { ok: true, text: lines[Math.floor(this.random() * lines.length)], celebrate: true };
+        }
+
         leaveShrine() {
             if (this.phase !== Phase.Shrine) return;
 

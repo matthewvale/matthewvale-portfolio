@@ -22,6 +22,8 @@ window.OutOfMind = window.OutOfMind || {};
             this.renderer = renderer;
             this.sound = sound;
             this.hudCache = {};
+            this.confetti = [];
+            this.confettiRunning = false;
 
             this.el = {
                 canvas: document.getElementById('board'),
@@ -42,6 +44,8 @@ window.OutOfMind = window.OutOfMind || {};
                 shrineFreezeLabel: document.getElementById('shrine-freeze-label'),
                 shrineFreezeButton: document.getElementById('shrine-freeze'),
                 shrineMessage: document.getElementById('shrine-message'),
+                shrineFreezeRow: document.getElementById('shrine-freeze-row'),
+                fx: document.getElementById('fx'),
                 overReason: document.getElementById('over-reason'),
                 overStats: document.getElementById('over-stats')
             };
@@ -95,8 +99,8 @@ window.OutOfMind = window.OutOfMind || {};
             document.getElementById('start').addEventListener('click', () => this.onStartPressed());
             document.getElementById('again').addEventListener('click', () => this.onStartPressed());
             document.getElementById('shrine-continue').addEventListener('click', () => this.game.leaveShrine());
-            this.el.shrineHpButton.addEventListener('click', () => this.onShrineResult(this.game.buyHeal()));
-            this.el.shrineFreezeButton.addEventListener('click', () => this.onShrineResult(this.game.buyFreezeSlot()));
+            this.el.shrineHpButton.addEventListener('click', e => this.onShrinePressed(e, () => this.game.buyHeal(), this.healMaxed()));
+            this.el.shrineFreezeButton.addEventListener('click', e => this.onShrinePressed(e, () => this.game.buyFreezeSlot(), this.freezeMaxed()));
             this.el.mute.addEventListener('click', () => this.onMutePressed());
 
             document.querySelectorAll('[data-dir]').forEach(button => {
@@ -193,6 +197,17 @@ window.OutOfMind = window.OutOfMind || {};
             this.updateMuteButton();
         }
 
+        healMaxed() { return this.game.hp >= C.MaxHp; }
+        freezeMaxed() { return this.game.maxCharges >= C.FreezeSlotsCap; }
+
+        // A maxed upgrade turns its button into a coin toss.
+        onShrinePressed(e, buy, maxed) {
+            this.sound.unlock();
+            const result = maxed ? this.game.tossCoin() : buy();
+            if (result.celebrate) this.burstConfetti(e.currentTarget);
+            this.onShrineResult(result);
+        }
+
         onShrineResult(result) {
             this.el.shrineMessage.textContent = result.text;
             this.el.shrineMessage.dataset.tone = result.ok ? 'info' : 'danger';
@@ -241,10 +256,89 @@ window.OutOfMind = window.OutOfMind || {};
         refreshShrine() {
             const g = this.game;
             this.el.shrineGold.textContent = `You have ${g.gold} gold`;
-            this.el.shrineHpLabel.textContent = `Restore 1 HP (${g.hp}/${C.MaxHp})`;
-            this.el.shrineHpButton.textContent = g.hp >= C.MaxHp ? 'Full' : `${C.HealCost} gold`;
-            this.el.shrineFreezeLabel.textContent = `Extra freeze slot (${g.maxCharges}/${C.FreezeSlotsCap})`;
-            this.el.shrineFreezeButton.textContent = g.maxCharges >= C.FreezeSlotsCap ? 'Maxed' : `${C.FreezeSlotCost} gold`;
+            const tossLabel = 'Toss a coin to the shrine';
+            const tossPrice = `${C.TossCost} gold`;
+            const healMaxed = this.healMaxed();
+            const freezeMaxed = this.freezeMaxed();
+
+            this.el.shrineHpLabel.textContent = healMaxed ? tossLabel : `Restore 1 HP (${g.hp}/${C.MaxHp})`;
+            this.el.shrineHpButton.textContent = healMaxed ? tossPrice : `${C.HealCost} gold`;
+            this.el.shrineFreezeLabel.textContent = freezeMaxed ? tossLabel : `Extra freeze slot (${g.maxCharges}/${C.FreezeSlotsCap})`;
+            this.el.shrineFreezeButton.textContent = freezeMaxed ? tossPrice : `${C.FreezeSlotCost} gold`;
+
+            // With both upgrades maxed, one toss button is plenty.
+            this.el.shrineFreezeRow.hidden = healMaxed && freezeMaxed;
+            this.el.shrineHpButton.classList.toggle('toss', healMaxed);
+            this.el.shrineFreezeButton.classList.toggle('toss', freezeMaxed);
+        }
+
+        // Confetti on its own canvas above the overlays, bursting from the pressed button.
+        burstConfetti(button) {
+            const fx = this.el.fx;
+            const stage = fx.getBoundingClientRect();
+            const from = button.getBoundingClientRect();
+            const dpr = Math.min(window.devicePixelRatio || 1, 3);
+            if (fx.width !== Math.round(stage.width * dpr)) {
+                fx.width = Math.round(stage.width * dpr);
+                fx.height = Math.round(stage.height * dpr);
+            }
+
+            const x = from.left + from.width / 2 - stage.left;
+            const y = from.top + from.height / 2 - stage.top;
+            const colours = ['#ff8a1f', '#ff60ff', '#2BA5E2', '#f5c542', '#9ad8ff', '#3ddc97'];
+            for (let i = 0; i < 80; i++) {
+                const angle = -Math.PI / 2 + (Math.random() - 0.5) * 2.4;
+                const speed = 260 + Math.random() * 380;
+                this.confetti.push({
+                    x, y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    spin: (Math.random() - 0.5) * 14,
+                    rotation: Math.random() * Math.PI,
+                    size: 5 + Math.random() * 5,
+                    colour: colours[i % colours.length],
+                    life: 1.6 + Math.random() * 0.6
+                });
+            }
+
+            if (this.confettiRunning) return;
+            this.confettiRunning = true;
+            let last = performance.now();
+            const ctx = fx.getContext('2d');
+
+            const step = now => {
+                const dt = Math.min(0.05, (now - last) / 1000);
+                last = now;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                ctx.clearRect(0, 0, stage.width, stage.height);
+
+                for (const p of this.confetti) {
+                    p.vy += 900 * dt;
+                    p.vx *= 0.99;
+                    p.x += p.vx * dt;
+                    p.y += p.vy * dt;
+                    p.rotation += p.spin * dt;
+                    p.life -= dt;
+
+                    ctx.save();
+                    ctx.globalAlpha = Math.max(0, Math.min(1, p.life));
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation);
+                    ctx.fillStyle = p.colour;
+                    ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+                    ctx.restore();
+                }
+
+                this.confetti = this.confetti.filter(p => p.life > 0 && p.y < stage.height + 40);
+                if (this.confetti.length) {
+                    requestAnimationFrame(step);
+                    return;
+                }
+
+                ctx.clearRect(0, 0, stage.width, stage.height);
+                this.confettiRunning = false;
+            };
+            requestAnimationFrame(step);
         }
 
         // #endregion

@@ -10,6 +10,7 @@ window.OutOfMind = window.OutOfMind || {};
         constructor() {
             this.context = null;
             this.muted = readMuted();
+            this.tossCount = 0;
         }
 
         // #region Public Methods
@@ -115,10 +116,39 @@ window.OutOfMind = window.OutOfMind || {};
                 wake: () => this.tone(110, 0.6, 'sine', 0.2, 55),
                 buy: () => { this.tone(784, 0.08, 'triangle', 0.15); this.tone(1175, 0.12, 'triangle', 0.13, null, 0.06); this.tone(1568, 0.25, 'sine', 0.1, null, 0.12); },
                 shatter: () => { this.noise(0.4, 0.3, 5000, 'highpass'); [2637, 2093, 1760, 1319].forEach((f, k) => this.tone(f, 0.15, 'triangle', 0.08, f * 0.7, k * 0.05)); this.tone(120, 0.2, 'sine', 0.2, 60); },
+                coinToss: () => this.coinToss(),
                 pickupFreeze: () => { this.noise(0.25, 0.08, 7000, 'highpass'); this.tone(1568, 0.12, 'sine', 0.12); this.tone(2093, 0.25, 'sine', 0.1, null, 0.08); },
                 halloween: () => this.halloween(),
                 death: () => { this.tone(220, 1.2, 'sawtooth', 0.2, 40); this.noise(1, 0.2, 300, 'lowpass'); }
             };
+        }
+
+        // A coin clink then a bright chiptune jingle. Each toss climbs a semitone (looping every
+        // octave) and picks a different phrase, so tossing coins in a row keeps escalating.
+        coinToss() {
+            const shift = Math.pow(2, (this.tossCount % 12) / 12);
+            const phrases = [
+                [0, 4, 7, 12],
+                [0, 7, 4, 12, 16],
+                [7, 4, 0, 4, 7, 12],
+                [0, 2, 4, 7, 9, 12]
+            ];
+            const phrase = phrases[this.tossCount % phrases.length];
+            this.tossCount++;
+
+            this.tone(2637, 0.08, 'triangle', 0.12);
+            this.tone(3520, 0.18, 'triangle', 0.1, null, 0.05);
+
+            const base = 523.25 * shift;
+            phrase.forEach((semitones, k) => {
+                const f = base * Math.pow(2, semitones / 12);
+                const at = 0.12 + k * 0.07;
+                this.tone(f, 0.16, 'square', 0.07, null, at);
+                this.tone(f * 2, 0.12, 'triangle', 0.05, null, at);
+            });
+            const end = 0.12 + phrase.length * 0.07;
+            [0, 4, 7].forEach(s => this.tone(base * 2 * Math.pow(2, s / 12), 0.5, 'triangle', 0.06, null, end));
+            this.noise(0.4, 0.05, 7000, 'highpass');
         }
 
         // A nod to Bach's Toccata in D minor on a spooky organ, resolving into a bright major fanfare,
