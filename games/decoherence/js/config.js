@@ -40,6 +40,7 @@ window.Decoherence = window.Decoherence || {};
         GhostMinSpawnDistance: 6,
         GoldChance: 0.06,
         SpikeChance: 0.07,
+        FreezeChance: 0.04,
         PumpkinChance: 0.03,             // at most one pumpkin on the board, one collectable per level
         // #endregion
 

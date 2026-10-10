@@ -103,6 +103,7 @@ window.Decoherence = window.Decoherence || {};
                 hiss: () => this.noise(0.25, 0.03, 6000, 'highpass'),
                 wake: () => this.tone(110, 0.6, 'sine', 0.2, 55),
                 buy: () => { this.tone(784, 0.08, 'triangle', 0.15); this.tone(1175, 0.12, 'triangle', 0.13, null, 0.06); this.tone(1568, 0.25, 'sine', 0.1, null, 0.12); },
+                pickupFreeze: () => { this.noise(0.25, 0.08, 7000, 'highpass'); this.tone(1568, 0.12, 'sine', 0.12); this.tone(2093, 0.25, 'sine', 0.1, null, 0.08); },
                 halloween: () => this.halloween(),
                 death: () => { this.tone(220, 1.2, 'sawtooth', 0.2, 40); this.noise(1, 0.2, 300, 'lowpass'); }
             };

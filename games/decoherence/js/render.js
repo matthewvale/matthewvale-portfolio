@@ -110,6 +110,7 @@ window.Decoherence = window.Decoherence || {};
                 else if (game.items[i] === DC.Item.Gold) this.drawGold(r);
                 else if (game.items[i] === DC.Item.Spike) this.drawSpikes(r);
                 else if (game.items[i] === DC.Item.Pumpkin) this.drawPumpkin(r);
+                else if (game.items[i] === DC.Item.Freeze) this.drawSnowflake(r, time);
             }
             ctx.globalAlpha = 1;
 
@@ -336,6 +337,36 @@ window.Decoherence = window.Decoherence || {};
                 ctx.lineTo(cx + half, base);
             }
             ctx.fill();
+        }
+
+        drawSnowflake(r, time) {
+            const ctx = this.ctx;
+            const arm = r.s * 0.2;
+            const twig = arm * 0.35;
+
+            ctx.save();
+            ctx.translate(r.cx, r.cy);
+            ctx.rotate(time / 2500);
+            ctx.shadowColor = Colour.Frozen;
+            ctx.shadowBlur = 10;
+            ctx.strokeStyle = Colour.Frozen;
+            ctx.lineWidth = Math.max(1.5, r.s * 0.04);
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            for (let k = 0; k < 6; k++) {
+                const a = (k * Math.PI) / 3;
+                const ex = Math.cos(a) * arm;
+                const ey = Math.sin(a) * arm;
+                ctx.moveTo(0, 0);
+                ctx.lineTo(ex, ey);
+                for (const side of [-1, 1]) {
+                    const b = a + side * 0.6;
+                    ctx.moveTo(ex * 0.6, ey * 0.6);
+                    ctx.lineTo(ex * 0.6 + Math.cos(b) * twig, ey * 0.6 + Math.sin(b) * twig);
+                }
+            }
+            ctx.stroke();
+            ctx.restore();
         }
 
         drawPumpkin(r) {

@@ -9,7 +9,7 @@ window.Decoherence = window.Decoherence || {};
     const Socket = DC.Socket;
 
     const Phase = Object.freeze({ Title: 'title', Playing: 'playing', Shrine: 'shrine', Over: 'over' });
-    const Item = Object.freeze({ Gold: 'gold', Spike: 'spike', Pumpkin: 'pumpkin' });
+    const Item = Object.freeze({ Gold: 'gold', Spike: 'spike', Freeze: 'freeze', Pumpkin: 'pumpkin' });
 
     class Game {
         constructor(random = Math.random) {
@@ -174,7 +174,7 @@ window.Decoherence = window.Decoherence || {};
                 return true;
             }
             if (this.charges <= 0) {
-                this.deny('No freezes. Collect gold to earn some.');
+                this.deny('No freezes. Find a snowflake to pick one up.');
                 return true;
             }
 
@@ -372,7 +372,10 @@ window.Decoherence = window.Decoherence || {};
             else if (roll < C.GoldChance + C.SpikeChance) {
                 if (!this.nearItem(i, Item.Gold)) this.items[i] = Item.Spike;
             }
-            else if (roll < C.GoldChance + C.SpikeChance + C.PumpkinChance) {
+            else if (roll < C.GoldChance + C.SpikeChance + C.FreezeChance) {
+                this.items[i] = Item.Freeze;
+            }
+            else if (roll < C.GoldChance + C.SpikeChance + C.FreezeChance + C.PumpkinChance) {
                 if (!this.pumpkinCollected && !this.items.includes(Item.Pumpkin)) this.items[i] = Item.Pumpkin;
             }
         }
@@ -401,17 +404,25 @@ window.Decoherence = window.Decoherence || {};
             const item = this.items[cell];
             if (!item) return;
 
+            // A full freeze pouch leaves the snowflake where it is, so it can be fetched later.
+            if (item === Item.Freeze) {
+                if (this.charges >= this.maxCharges) {
+                    this.say('Your freezes are full. The snowflake stays here.');
+                    return;
+                }
+
+                this.items[cell] = null;
+                this.charges++;
+                this.sound('pickupFreeze');
+                this.say('Freeze +1. Tap a ghost in your light to use it.');
+                return;
+            }
+
             this.items[cell] = null;
             if (item === Item.Gold) {
                 this.gold++;
                 this.sound('gold');
-                if (this.charges < this.maxCharges) {
-                    this.charges++;
-                    this.say('Gold. Freeze +1.');
-                }
-                else {
-                    this.say('Gold.');
-                }
+                this.say('Gold.');
                 return;
             }
 
