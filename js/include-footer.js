@@ -8,7 +8,7 @@
       <div class="footer-container">
         <div class="footer-section">
           <h3>Portfolio last updated:</h3>
-          <i>September 2026</i>
+          <i>October 2026</i>
         </div>
       </div>
     </footer>
