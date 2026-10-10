@@ -548,12 +548,7 @@ window.OutOfMind = window.OutOfMind || {};
         }
 
         hurtByGhost(index, text) {
-            const ghost = this.ghosts[index];
-            if (ghost.frozen) {
-                ghost.frozen = false;
-                this.charges = Math.min(this.maxCharges, this.charges + 1);
-            }
-            ghost.cell = this.farDarkCell();
+            this.ghosts[index].cell = this.farDarkCell();
 
             this.sound('hurt');
             this.damage(text, 'Taken by the dark.');

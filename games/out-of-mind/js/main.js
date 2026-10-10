@@ -40,7 +40,7 @@ window.OutOfMind = window.OutOfMind || {};
         }
 
         requestAnimationFrame(frame);
-        DC.instance = game;
+        DC.instance = game;              // handy for poking at the game from the browser console
     }
 
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

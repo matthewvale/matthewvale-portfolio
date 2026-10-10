@@ -67,6 +67,8 @@ window.OutOfMind = window.OutOfMind || {};
             this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             this.cellWidth = this.cssWidth / C.GridWidth;
             this.cellHeight = this.cssHeight / C.GridHeight;
+            this.rects = [];
+            for (let i = 0; i < this.game.world.size; i++) this.rects.push(this.buildRect(i));
         }
 
         // Converts a point in CSS pixels (relative to the canvas) into a cell index.
@@ -144,8 +146,10 @@ window.OutOfMind = window.OutOfMind || {};
 
         // #region Private Methods
 
+        rect(i) { return this.rects[i]; }
+
         // Rounded cell edges so neighbouring cells meet exactly, with no hairline seams.
-        rect(i) {
+        buildRect(i) {
             const w = this.game.world;
             const x0 = Math.round(w.x(i) * this.cellWidth);
             const y0 = Math.round(w.y(i) * this.cellHeight);

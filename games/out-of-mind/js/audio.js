@@ -11,6 +11,7 @@ window.OutOfMind = window.OutOfMind || {};
             this.context = null;
             this.muted = readMuted();
             this.tossCount = 0;
+            this.lastDread = -1;
         }
 
         // #region Public Methods
@@ -61,6 +62,10 @@ window.OutOfMind = window.OutOfMind || {};
         setDread(amount, active) {
             if (!this.context) return;
 
+            const target = active ? Math.round(amount * 50) / 50 : -1;
+            if (target === this.lastDread) return;
+
+            this.lastDread = target;
             const t = this.context.currentTime;
             const k = amount * amount;
             this.droneGain.gain.setTargetAtTime(active ? 0.025 + 0.16 * k : 0, t, 0.3);

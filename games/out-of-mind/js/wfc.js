@@ -189,6 +189,5 @@ window.OutOfMind = window.OutOfMind || {};
 
     DC.Socket = Socket;
     DC.Direction = Object.freeze({ North: 0, East: 1, South: 2, West: 3 });
-    DC.Opposite = OPPOSITE;
     DC.World = World;
 })(window.OutOfMind);

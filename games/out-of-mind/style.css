@@ -305,8 +305,8 @@ svg {
     font-size: 14px;
 }
 
-.best {
-    margin: 10px 0 0 !important;
+.panel .best {
+    margin: 10px 0 0;
 }
 
 .panel button {
@@ -368,9 +368,9 @@ svg {
     pointer-events: none;
 }
 
-.shop-message {
+.panel .shop-message {
     min-height: 1.4em;
-    margin: 6px 0 12px !important;
+    margin: 6px 0 12px;
     font-size: 14px;
     color: var(--muted);
 }
