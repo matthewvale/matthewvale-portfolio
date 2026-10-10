@@ -445,8 +445,9 @@ window.OutOfMind = window.OutOfMind || {};
                 this.pumpkinCollected = true;
                 this.celebrateAt = this.time;
                 this.celebrateCell = cell;
+                this.gold += C.PumpkinGold;
                 this.sound('halloween');
-                this.say('Happy Halloween!', 'celebrate');
+                this.say(`Happy Halloween! +${C.PumpkinGold} gold.`, 'celebrate');
                 return;
             }
 
