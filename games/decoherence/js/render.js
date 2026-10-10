@@ -40,6 +40,7 @@ window.Decoherence = window.Decoherence || {};
     const NOISE_REFRESH_MS = 110;
     const HURT_FLASH_MS = 350;
     const CELEBRATE_MS = 2600;
+    const SHATTER_MS = 600;
     const CONFETTI_COLOURS = Object.freeze(['#ff8a1f', '#ff60ff', '#2BA5E2', '#f5c542', '#9b5cff']);
 
     class Renderer {
@@ -128,6 +129,8 @@ window.Decoherence = window.Decoherence || {};
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
                 ctx.fillRect(-8, -8, this.cssWidth + 16, this.cssHeight + 16);
             }
+            const sinceShatter = time - game.shatterAt;
+            if (sinceShatter >= 0 && sinceShatter < SHATTER_MS) this.drawShatter(sinceShatter);
             const sinceCelebrate = time - game.celebrateAt;
             if (sinceCelebrate >= 0 && sinceCelebrate < CELEBRATE_MS) this.drawCelebration(sinceCelebrate);
             if (sinceHurt < HURT_FLASH_MS) {
@@ -403,6 +406,35 @@ window.Decoherence = window.Decoherence || {};
             ctx.beginPath();
             ctx.ellipse(r.cx, cy + ry * 0.35, rx * 0.5, ry * 0.2, 0, 0, Math.PI);
             ctx.fill();
+        }
+
+        // Ice shards flying out from where the frozen ghost stood.
+        drawShatter(elapsed) {
+            const ctx = this.ctx;
+            const origin = this.rect(this.game.shatterCell);
+            const t = elapsed / 1000;
+            const fade = 1 - elapsed / SHATTER_MS;
+
+            ctx.fillStyle = Colour.Frozen;
+            for (let p = 0; p < 18; p++) {
+                const angle = (p * 2.399) % (Math.PI * 2);
+                const speed = 90 + ((p * 53) % 80);
+                const x = origin.cx + Math.cos(angle) * speed * t;
+                const y = origin.cy + Math.sin(angle) * speed * t + 120 * t * t;
+                const size = 3 + (p % 3) * 2;
+                ctx.globalAlpha = Math.max(0, fade);
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(angle + t * 8);
+                ctx.beginPath();
+                ctx.moveTo(0, -size);
+                ctx.lineTo(size * 0.5, size);
+                ctx.lineTo(-size * 0.5, size);
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
+            ctx.globalAlpha = 1;
         }
 
         // Confetti bursting from the pumpkin plus a banner. Particle paths come from the

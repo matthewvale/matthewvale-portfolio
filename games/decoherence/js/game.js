@@ -30,6 +30,8 @@ window.Decoherence = window.Decoherence || {};
             this.ghosts = [];
             this.hurtAt = -Infinity;
             this.celebrateAt = -Infinity;
+            this.shatterAt = -Infinity;
+            this.shatterCell = 0;
             this.celebrateCell = 0;
             this.bestLevel = readBestLevel();
 
@@ -133,8 +135,11 @@ window.Decoherence = window.Decoherence || {};
 
             const ghostIndex = this.ghostAt(next);
             if (ghostIndex >= 0) {
-                this.hurtByGhost(ghostIndex, 'You walked into a ghost.');
-                return;
+                if (!this.ghosts[ghostIndex].frozen) {
+                    this.hurtByGhost(ghostIndex, 'You walked into a ghost.');
+                    return;
+                }
+                this.shatter(ghostIndex);
             }
 
             this.player = next;
@@ -516,6 +521,18 @@ window.Decoherence = window.Decoherence || {};
                 [dirs[i], dirs[j]] = [dirs[j], dirs[i]];
             }
             return dirs;
+        }
+
+        // Walking into a frozen ghost breaks the ice: no damage, the freeze is spent,
+        // and the ghost decoheres somewhere far away in the dark.
+        shatter(index) {
+            const ghost = this.ghosts[index];
+            this.shatterAt = this.time;
+            this.shatterCell = ghost.cell;
+            ghost.frozen = false;
+            ghost.cell = this.farDarkCell();
+            this.sound('shatter');
+            this.say('Shattered! It will reform somewhere in the dark.');
         }
 
         hurtByGhost(index, text) {

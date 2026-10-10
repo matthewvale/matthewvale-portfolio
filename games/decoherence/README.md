@@ -7,7 +7,7 @@ Play it from the portfolio's Personal Games page, or open `index.html` from any 
 ### How it plays
 - Your light (a 5x5 square) collapses the world around you as you walk.
 - Anything out of sight for a second decoheres back into noise, and regrows differently next time you see it.
-- Ghosts only move while unobserved. Pick up snowflakes for freeze charges, then tap or click a ghost in your light to freeze it.
+- Ghosts only move while unobserved. Pick up snowflakes for freeze charges, then tap or click a ghost in your light to freeze it. Walk into a frozen ghost to shatter it; it reforms somewhere far away in the dark.
 - Stand still for five seconds and your light blinks, giving every ghost a free step.
 - Reach the green door, then spend gold at the shrine on health or extra freeze slots.
 - Find a pumpkin for a Halloween surprise.
