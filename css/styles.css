@@ -1,4 +1,14 @@
 ﻿:root {
+    /* Font sizes: the only sizes used on the site. Always reference these
+       instead of writing a px value in a rule. */
+    --font-xs: 13px;    /* card badges */
+    --font-sm: 15px;    /* homepage card descriptions */
+    --font-base: 18px;  /* body text, release dates, h3 */
+    --font-md: 20px;    /* nav, buttons, reviewer names */
+    --font-lg: 22px;    /* intro paragraphs, homepage card titles */
+    --font-xl: 28px;    /* h2, game titles */
+    --font-2xl: 36px;   /* h1, featured and section headings */
+
     /* Grays */
     --gray-1: #6D748C;
     --gray-2: #2F3749;
@@ -11,6 +21,8 @@
     --blue-4: #1B2838;
     /* Pinks */
     --pink-1: #ff60ff;
+    /* Greens */
+    --green-1: #4ade9c;
 
     /* Glitch tunables, used by the featured heading. The featured border
        overrides these on .homepage-spotlight so each can be tuned alone.
@@ -27,7 +39,7 @@
 * {
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: var(--font-base);
     font-weight: normal;
     text-decoration: none;
     margin: 0;
@@ -40,18 +52,18 @@ i {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: var(--font-2xl);
     text-shadow: var(--gray-3) 0 2px 4px;
 }
 
 h2 {
-    font-size: 28px;
+    font-size: var(--font-xl);
     color: var(--blue-1);
     text-shadow: var(--gray-3) 0 4px 4px;
 }
 
 h3 {
-    font-size: 18px;
+    font-size: var(--font-base);
 }
 
 html, body {
@@ -104,7 +116,7 @@ body {
     background-repeat: no-repeat;
     background-size: 0% 100%;
     border-radius: 0.3em;
-    font-size: 20px;
+    font-size: var(--font-md);
     border: 2px solid var(--gray-2);
     cursor: pointer;
 }
@@ -131,7 +143,7 @@ body {
     width: 128px;
     text-align: center;
     margin-right: 10px;
-    font-size: 20px;
+    font-size: var(--font-md);
     filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.5));
     transition: all 0.25s ease-in-out;
 }
@@ -152,11 +164,7 @@ body {
 .button-style-viewmy {
     width: 260px;
     filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
-    transition: background-size 0.25s ease-in-out, border-color 0.25s ease-in-out, transform 0.25s ease-in-out, filter 0.25s ease-in-out;
-}
-
-.button-style-viewmy:hover {
-    transform: translateY(-3px);
+    transition: background-size 0.25s ease-in-out, border-color 0.25s ease-in-out, filter 0.25s ease-in-out;
 }
 
 .button-style-viewmy * {
@@ -213,7 +221,7 @@ header {
 }
 
 nav a {
-    font-size: 20px;
+    font-size: var(--font-md);
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -372,7 +380,7 @@ nav a {
 }
 
 .centered-text p {
-    font-size: 22px;
+    font-size: var(--font-lg);
     margin: 16px;
     text-align: center;
 }
@@ -382,8 +390,19 @@ nav a {
     margin: 6px 0;
 }
 
+/* Heading for a section of a game list (e.g. Experiments); sits above
+   the game titles. */
+.centered-text h2.game-section-heading {
+    font-size: var(--font-2xl);
+}
+
+/* Matches the green EXPERIMENT card badge. */
+.centered-text h2.game-section-heading--experiment {
+    color: var(--green-1);
+}
+
 .centered-text p a:any-link {
-    font-size: 22px;
+    font-size: var(--font-lg);
     color: var(--pink-1);
     cursor: pointer;
 }
@@ -463,12 +482,12 @@ nav a {
 
 gametitle {
     color: var(--blue-1);
-    font-size: 36px;
+    font-size: var(--font-xl);
 }
 
 releasedate {
     color: var(--pink-1);
-    font-size: 18px;
+    font-size: var(--font-base);
 }
 
 .game-store-links {
@@ -593,17 +612,18 @@ releasedate {
 }
 
 .homepage-game-card-info h2 {
-    font-size: 22px;
+    font-size: var(--font-lg);
 }
 
 .homepage-game-card-info p {
-    font-size: 15px;
+    font-size: var(--font-sm);
     color: #cccccc;
     padding-bottom: 8px;
 }
 
 /* Project type badge over a card image. Colour it with a modifier:
-   .card-badge--professional (blue) or .card-badge--personal (pink). */
+   .card-badge--professional (blue), .card-badge--personal (pink) or
+   .card-badge--experiment (green). */
 .card-badge {
     position: absolute;
     top: 10px;
@@ -621,10 +641,26 @@ releasedate {
 
 .card-badge--professional { --badge-color: var(--blue-1); }
 .card-badge--personal { --badge-color: var(--pink-1); }
+.card-badge--experiment { --badge-color: var(--green-1); }
+
+/* Wrap badges in .card-badges when a card needs more than one. */
+.card-badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.card-badges .card-badge {
+    position: static;
+}
 
 .card-badge,
 .card-badge * {
-    font-size: 13px;
+    font-size: var(--font-xs);
     line-height: 1;
 }
 
@@ -735,7 +771,7 @@ releasedate {
     position: relative;
     display: block;
     text-align: center;
-    font-size: 38px;
+    font-size: var(--font-2xl);
     /* Same shadow as the other h2s. text-shadow can't be used: it would paint
        over the clipped gradient, so drop-shadow follows the glyphs instead. */
     text-shadow: none;
@@ -829,13 +865,13 @@ releasedate {
 }
 
 reviewer {
-    font-size: 20px;
+    font-size: var(--font-md);
     color: var(--blue-1);
     margin: 0 auto;
 }
 
 position {
-    font-size: 17px;
+    font-size: var(--font-base);
     font-weight: bold;
     font-style: italic;
     color: var(--blue-1);
@@ -934,7 +970,7 @@ position {
     .homepage-game-card > img { height: 220px; }
 
     /* Same size as the other section headings, so it fits on one line. */
-    .glitch-heading { font-size: 28px; }
+    .glitch-heading { font-size: var(--font-xl); }
 }
 
 @media screen and (min-width: 900px) {
