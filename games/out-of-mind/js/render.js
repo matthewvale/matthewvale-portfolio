@@ -41,6 +41,8 @@ window.OutOfMind = window.OutOfMind || {};
     const HURT_FLASH_MS = 350;
     const CELEBRATE_MS = 2600;
     const SHATTER_MS = 600;
+    const COIN_BURST_MS = 500;
+    const COIN_COLOURS = Object.freeze(['#f5c542', '#ffe08a', '#ff8a1f']);
     const CONFETTI_COLOURS = Object.freeze(['#ff8a1f', '#ff60ff', '#2BA5E2', '#f5c542', '#9b5cff']);
 
     class Renderer {
@@ -131,6 +133,8 @@ window.OutOfMind = window.OutOfMind || {};
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
                 ctx.fillRect(-8, -8, this.cssWidth + 16, this.cssHeight + 16);
             }
+            const sinceCoin = time - game.coinAt;
+            if (sinceCoin >= 0 && sinceCoin < COIN_BURST_MS) this.drawCoinBurst(sinceCoin);
             const sinceShatter = time - game.shatterAt;
             if (sinceShatter >= 0 && sinceShatter < SHATTER_MS) this.drawShatter(sinceShatter);
             const sinceCelebrate = time - game.celebrateAt;
@@ -410,6 +414,24 @@ window.OutOfMind = window.OutOfMind || {};
             ctx.beginPath();
             ctx.ellipse(r.cx, cy + ry * 0.35, rx * 0.5, ry * 0.2, 0, 0, Math.PI);
             ctx.fill();
+        }
+
+        // A small pop of gold confetti where a coin was picked up.
+        drawCoinBurst(elapsed) {
+            const ctx = this.ctx;
+            const origin = this.rect(this.game.coinCell);
+            const t = elapsed / 1000;
+            ctx.globalAlpha = Math.max(0, 1 - elapsed / COIN_BURST_MS);
+
+            for (let p = 0; p < 14; p++) {
+                const angle = -Math.PI / 2 + (((p * 0.618) % 1) - 0.5) * 2.6;
+                const speed = 70 + ((p * 41) % 60);
+                const x = origin.cx + Math.cos(angle) * speed * t;
+                const y = origin.cy + Math.sin(angle) * speed * t + 160 * t * t;
+                ctx.fillStyle = COIN_COLOURS[p % COIN_COLOURS.length];
+                ctx.fillRect(x - 1.5, y - 1.5, 3, 3);
+            }
+            ctx.globalAlpha = 1;
         }
 
         // Ice shards flying out from where the frozen ghost stood.

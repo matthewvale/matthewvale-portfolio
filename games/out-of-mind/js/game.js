@@ -31,6 +31,8 @@ window.OutOfMind = window.OutOfMind || {};
             this.hurtAt = -Infinity;
             this.celebrateAt = -Infinity;
             this.shatterAt = -Infinity;
+            this.coinAt = -Infinity;
+            this.coinCell = 0;
             this.shatterCell = 0;
             this.celebrateCell = 0;
             this.bestLevel = readBestLevel();
@@ -436,6 +438,8 @@ window.OutOfMind = window.OutOfMind || {};
             this.items[cell] = null;
             if (item === Item.Gold) {
                 this.gold++;
+                this.coinAt = this.time;
+                this.coinCell = cell;
                 this.sound('gold');
                 this.say('Gold.');
                 return;
