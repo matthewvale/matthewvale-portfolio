@@ -396,6 +396,11 @@ nav a {
     font-size: var(--font-2xl);
 }
 
+/* Matches the green EXPERIMENT card badge. */
+.centered-text h2.game-section-heading--experiment {
+    color: var(--green-1);
+}
+
 .centered-text p a:any-link {
     font-size: var(--font-lg);
     color: var(--pink-1);
