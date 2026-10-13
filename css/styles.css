@@ -227,9 +227,22 @@ header {
     min-height: 50px;
     max-height: 50px;
     z-index: 80;
+    /* Faint galaxy-map glow: brighter navy on the left fading to deep space */
+    background: linear-gradient(90deg, rgba(30, 62, 96, 0.92) 0%, rgba(13, 28, 45, 0.92) 50%, rgba(5, 13, 26, 0.92) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.35));
+}
+
+/* The old gradient lives on as a thin accent line under the bar */
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
     background: linear-gradient(90deg, var(--blue-1) 0%, var(--pink-1) 100%);
-    border-bottom: 3px solid var(--blue-3);
-    filter: drop-shadow(0px 4px 1px rgba(0,0,0,0.2));
 }
 
 .main-nav {
@@ -296,6 +309,13 @@ nav a {
     padding: 10px 14px;
     display: block;
     color: white;
+    border-radius: 4px;
+    border-left: 3px solid transparent;
+}
+
+.mobile-menu a.active {
+    background-color: var(--blue-2);
+    border-left-color: var(--blue-1);
 }
 
 .mobile-menu.open { display: flex; }
@@ -346,6 +366,11 @@ nav a {
 .box-promo-textarea-centered {
     top: 0;
     bottom: 0;
+}
+
+/* Title-only banners don't need the homepage's full height */
+.box-promo:has(.box-promo-textarea-centered) {
+    height: 315px;
 }
 
 /* Homepage hero (the one with the contact button): room above the
@@ -477,6 +502,11 @@ nav a {
     border: 2px solid transparent;
     border-image: linear-gradient(90deg, var(--blue-1), var(--pink-1)) 1;
     filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
+}
+
+/* Keep the left edge in view for capsules with a left-aligned logo */
+.game img.game-img-left {
+    object-position: 0% 0%;
 }
 
 .game-details-container {
@@ -931,7 +961,6 @@ position {
 /*#region ----- Media Queries (keep last so they override everything above) */
 @media screen and (max-width: 900px) {
     .main-nav { display: none; }
-    header { justify-content: flex-start; padding-left: 12px; }
 
     .game {
         flex-direction: column;
@@ -994,7 +1023,7 @@ position {
     .glitch-heading { font-size: var(--font-xl); }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 901px) {
     .mobile-burger { display: none; }
     .mobile-menu { display: none; }
     .skills-container .skill-item { width: calc(50% - 8px); }

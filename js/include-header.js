@@ -82,6 +82,15 @@
       if (!document.querySelector('.mobile-menu')) placeholder.insertAdjacentElement('afterend', m);
     }
 
+    // highlight the link for the page we're on
+    const current = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.main-nav a, .mobile-menu a').forEach(a => {
+      if (a.getAttribute('href') === current) {
+        a.classList.add('active');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+
     // ensure menu script is loaded once
     if (!document.querySelector('script[data-included="menu"]')) {
       const s = document.createElement('script');
