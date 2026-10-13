@@ -104,7 +104,7 @@ body {
 
 .button-style-1:hover,
 .button-style-2:hover {
-    background-color: var(--blue-2);
+    background-color: var(--blue-1);
     cursor: pointer;
 }
 
@@ -310,12 +310,10 @@ nav a {
     display: block;
     color: white;
     border-radius: 4px;
-    border-left: 3px solid transparent;
 }
 
 .mobile-menu a.active {
     background-color: var(--blue-2);
-    border-left-color: var(--blue-1);
 }
 
 .mobile-menu.open { display: flex; }
