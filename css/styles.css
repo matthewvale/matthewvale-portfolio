@@ -348,6 +348,11 @@ nav a {
     bottom: 0;
 }
 
+/* Title-only banners don't need the homepage's full height */
+.box-promo:has(.box-promo-textarea-centered) {
+    height: 315px;
+}
+
 /* Homepage hero (the one with the contact button): room above the
    portrait, and a tighter gap below it so the button still clears
    the bottom of the banner. */
