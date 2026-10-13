@@ -226,7 +226,6 @@ header {
     height: 50px;
     min-height: 50px;
     max-height: 50px;
-    padding: 0 max(16px, calc((100% - 1080px) / 2 + 32px));
     z-index: 80;
     /* Faint galaxy-map glow: brighter navy on the left fading to deep space */
     background: linear-gradient(90deg, rgba(30, 62, 96, 0.92) 0%, rgba(13, 28, 45, 0.92) 50%, rgba(5, 13, 26, 0.92) 100%);
@@ -249,7 +248,9 @@ header::after {
 .main-nav {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1080px;
 }
 
 nav a {
@@ -257,57 +258,6 @@ nav a {
     padding-left: 1rem;
     padding-right: 1rem;
 }
-
-.main-nav a {
-    position: relative;
-    font-size: var(--font-sm);
-    letter-spacing: 1px;
-    padding: 0 12px;
-    color: rgba(255, 255, 255, 0.8);
-    filter: none;
-    transition: color 0.2s ease-in-out;
-}
-
-.main-nav a:hover,
-.main-nav a.active {
-    background-color: transparent;
-    color: white;
-}
-
-/* Gradient underline: grows in on hover, stays on the current page */
-.nav-main a::after {
-    content: "";
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 2px;
-    height: 2px;
-    border-radius: 1px;
-    background: linear-gradient(90deg, var(--blue-1) 0%, var(--pink-1) 100%);
-    transform: scaleX(0);
-    transition: transform 0.2s ease-in-out;
-}
-
-.nav-main a:hover::after,
-.nav-main a.active::after {
-    transform: scaleX(1);
-}
-
-/* LET'S TALK: outlined call to action that fills on hover */
-.nav-end a {
-    color: white;
-    line-height: 32px;
-    padding: 0 16px;
-    border-radius: 16px;
-    border: 2px solid var(--blue-1);
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-}
-
-.nav-end a:hover,
-.nav-end a.active {
-    background-color: var(--blue-1);
-}
-
 /*#endregion*/
 
 /*#region ----- Mobile Navigation */
