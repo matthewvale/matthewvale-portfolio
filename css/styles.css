@@ -137,22 +137,48 @@ body {
 }
 
 /* PLAY NOW: add alongside .button-style-steam for games that run in the
-   browser. Green to match the experiment badge, with a ring that pulses
-   outwards to draw the eye. */
+   browser. Green to match the experiment badge, with a soft highlight
+   that glides across every few seconds to draw the eye. */
 .button-style-play {
+    position: relative;
+    overflow: hidden;
     background-image: linear-gradient(90deg, var(--green-1) 0%, var(--green-0) 100%);
     border-color: var(--green-1);
-    animation: play-pulse 2s ease-out infinite;
+    transition: background-size 0.25s ease-in-out, border-color 0.25s ease-in-out, filter 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+.button-style-play::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    /* Long soft tail on the left, crisp bright front on the right */
+    background: linear-gradient(100deg, transparent 0%, rgba(74, 222, 156, 0.2) 55%, rgba(74, 222, 156, 0.55) 88%, transparent 91%);
+    transform: translateX(-120%);
+    animation: play-shimmer 2.5s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .button-style-play:hover {
     border-color: var(--green-1);
     color: var(--blue-2);
+    box-shadow: 0 0 0 4px rgba(74, 222, 156, 0.3);
 }
 
-@keyframes play-pulse {
-    0%        { box-shadow: 0 0 0 0 rgba(74, 222, 156, 0.55); }
-    70%, 100% { box-shadow: 0 0 0 10px rgba(74, 222, 156, 0); }
+.button-style-play:hover::after {
+    animation: none;
+}
+
+/* Sweeps across in the first 60% of the cycle, then rests. */
+@keyframes play-shimmer {
+    0%        { transform: translateX(-120%); }
+    60%, 100% { transform: translateX(340%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .button-style-play::after { animation: none; }
 }
 
 .button-style-itch {
@@ -490,6 +516,56 @@ nav a {
     align-items: center;
 }
 
+/* Faded backdrop behind a game card: add .game--backdrop plus a
+   per-game class below that sets --game-bg to the image and
+   --game-accent to a colour from it, which tints the image border. */
+.game--backdrop {
+    position: relative;
+    isolation: isolate;
+}
+
+.game--backdrop-spacenomads { --game-bg: url("../res/images/personal/spacenomads_galaxy_banner.png"); --game-bg-size: cover; --game-accent: #4a5fd0; }
+.game--backdrop-polyskies { --game-bg: url("../res/images/personal/polyskies.png"); --game-accent: #62b6eb; }
+.game--backdrop-laservasion { --game-bg: url("../res/images/personal/laservasion.jpg"); --game-accent: #ffffff; --game-accent-mix: 55%; }
+.game--backdrop-nightmaretrails { --game-bg: url("../res/images/personal/nightmaretrails.jpg"); --game-accent: #c8506a; }
+.game--backdrop-anwk { --game-bg: url("../res/images/personal/anwk.jpg"); --game-accent: #1a9bd0; }
+.game--backdrop-polytowns { --game-bg: url("../res/images/personal/polytowns.jpg"); --game-accent: #3f7fd0; }
+.game--backdrop-outofmind { --game-bg: url("../res/images/personal/out-of-mind.jpg"); --game-accent: #5a9fd0; }
+.game--backdrop-redrustpioneers { --game-bg: url("../res/images/professional/red_rust_pioneers.jpg"); --game-bg-size: auto 100%; --game-accent: #d05a1a; }
+.game--backdrop-stuffed { --game-bg: url("../res/images/professional/stuffed.jpg"); --game-bg-size: auto 100%; --game-accent: #12a0bf; }
+
+.game--backdrop::before {
+    content: "";
+    position: absolute;
+    inset: -24px;
+    z-index: -1;
+    /* Default width matches where the fade ends, so the image edge never
+       shows. Per card, --game-bg-size: cover fills the whole card and
+       "auto 100%" shows the full image height. */
+    background: var(--game-bg) right center / var(--game-bg-size, 72% auto) no-repeat;
+    opacity: 0.45;
+    /* Soften detail so it doesn't compete with the text on top */
+    filter: blur(1.5px);
+    /* Strongest on the right, fading out to the left; the second layer
+       softens the top and bottom edges so it melts into the page. */
+    -webkit-mask-image:
+        linear-gradient(to left, transparent 0%, #000 8%, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.12) 50%, transparent 70%),
+        linear-gradient(to bottom, transparent 0%, #000 25%, #000 75%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to left, transparent 0%, #000 8%, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.12) 50%, transparent 70%),
+        linear-gradient(to bottom, transparent 0%, #000 25%, #000 75%, transparent 100%);
+    mask-composite: intersect;
+    pointer-events: none;
+}
+
+/* Dark halo so text holds up over the busier backdrops */
+.game--backdrop gametitle,
+.game--backdrop releasedate,
+.game--backdrop p {
+    text-shadow: 0 1px 2px var(--gray-3), 0 0 8px var(--blue-2);
+}
+
 .game img {
     min-width: 420px;
     max-width: 420px;
@@ -498,7 +574,11 @@ nav a {
     object-fit: cover;
     object-position: 50% 0%;
     border: 2px solid transparent;
-    border-image: linear-gradient(90deg, var(--blue-1), var(--pink-1)) 1;
+    /* The usual blue-to-pink border, pulled towards the card's
+       --game-accent by --game-accent-mix (no accent = no change). */
+    border-image: linear-gradient(90deg,
+        color-mix(in srgb, var(--blue-1), var(--game-accent, var(--blue-1)) var(--game-accent-mix, 70%)),
+        color-mix(in srgb, var(--pink-1), var(--game-accent, var(--pink-1)) var(--game-accent-mix, 70%))) 1;
     filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
 }
 
@@ -979,6 +1059,19 @@ position {
         margin-left: 0;
         width: 100%;
         padding: 0 4px;
+    }
+
+    /* Cards stack here, so the backdrop fills the card and fades up from
+       the bottom, sitting behind the text instead of beside the image. */
+    .game--backdrop::before {
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image:
+            linear-gradient(to top, transparent 0%, #000 8%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.12) 55%, transparent 70%),
+            linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+        mask-image:
+            linear-gradient(to top, transparent 0%, #000 8%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.12) 55%, transparent 70%),
+            linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
     }
 
     .spotlight-frame {
