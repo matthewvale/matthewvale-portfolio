@@ -7,6 +7,10 @@
 
   const staticFallback = `
     <header>
+      <a class="nav-brand" href="index.html" aria-label="Matthew Vale, home">
+        <img src="res/images/me/me_circle_512.png" alt="">
+        <span>MATTHEW VALE</span>
+      </a>
       <nav class="main-nav">
         <div class="nav-main">
           <a class="button-style-1" href="index.html">HOME</a>
@@ -81,6 +85,15 @@
       if (!document.querySelector('.mobile-burger')) placeholder.insertAdjacentElement('afterend', b);
       if (!document.querySelector('.mobile-menu')) placeholder.insertAdjacentElement('afterend', m);
     }
+
+    // highlight the link for the page we're on
+    const current = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.main-nav a, .mobile-menu a').forEach(a => {
+      if (a.getAttribute('href') === current) {
+        a.classList.add('active');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
 
     // ensure menu script is loaded once
     if (!document.querySelector('script[data-included="menu"]')) {
