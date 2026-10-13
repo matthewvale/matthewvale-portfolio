@@ -479,6 +479,11 @@ nav a {
     filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.5));
 }
 
+/* Keep the left edge in view for capsules with a left-aligned logo */
+.game img.game-img-left {
+    object-position: 0% 0%;
+}
+
 .game-details-container {
     display: flex;
     flex-direction: column;
