@@ -219,14 +219,13 @@ body {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: fixed;
     top: 0;
     width: 100%;
     height: 50px;
     min-height: 50px;
     max-height: 50px;
-    /* Line the brand and the last link up with the page content edges */
     padding: 0 max(16px, calc((100% - 1080px) / 2 + 32px));
     z-index: 80;
     /* Faint galaxy-map glow: brighter navy on the left fading to deep space */
@@ -245,20 +244,6 @@ header::after {
     bottom: 0;
     height: 2px;
     background: linear-gradient(90deg, var(--blue-1) 0%, var(--pink-1) 100%);
-}
-
-.nav-brand {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    cursor: pointer;
-}
-
-.nav-brand img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 2px solid var(--blue-1);
 }
 
 .main-nav {

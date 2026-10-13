@@ -7,9 +7,6 @@
 
   const staticFallback = `
     <header>
-      <a class="nav-brand" href="index.html" aria-label="Matthew Vale, home">
-        <img src="res/images/me/me_circle_512.png" alt="">
-      </a>
       <nav class="main-nav">
         <div class="nav-main">
           <a class="button-style-1" href="index.html">HOME</a>
