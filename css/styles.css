@@ -543,7 +543,7 @@ nav a {
        shows. Per card, --game-bg-size: cover fills the whole card and
        "auto 100%" shows the full image height. */
     background: var(--game-bg) right center / var(--game-bg-size, 72% auto) no-repeat;
-    opacity: 0.45;
+    opacity: 0.35;
     /* Soften detail so it doesn't compete with the text on top */
     filter: blur(1.5px);
     /* Strongest on the right, fading out to the left; the second layer
@@ -637,6 +637,12 @@ releasedate {
     --glitch-border-width: 3px;
     --glitch-speed: 0.5s;
     --sweep-speed: 6s;
+}
+
+/* Stronger backdrop than the regular cards so it reads behind the larger card */
+.homepage-spotlight.game--backdrop::before {
+    opacity: 0.8;
+    filter: blur(1px) brightness(1.4);
 }
 
 .homepage-spotlight img {
